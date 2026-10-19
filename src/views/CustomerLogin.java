@@ -4,6 +4,9 @@
  */
 package views;
 
+import models.Customer;
+import models.DBManager;
+
 /**
  *
  * @author lichi
@@ -36,6 +39,7 @@ public class CustomerLogin extends javax.swing.JFrame {
         btnCustomerLoginBack = new javax.swing.JButton();
         btnCustomerLogin = new javax.swing.JButton();
         btnCustomerRegister = new javax.swing.JButton();
+        lblCustomerLogin_ErrorMessage = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(800, 600));
@@ -60,6 +64,7 @@ public class CustomerLogin extends javax.swing.JFrame {
 
         btnCustomerLogin.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnCustomerLogin.setText("LOGIN");
+        btnCustomerLogin.addActionListener(this::btnCustomerLoginActionPerformed);
 
         btnCustomerRegister.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnCustomerRegister.setText("REGISTER");
@@ -69,28 +74,30 @@ public class CustomerLogin extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(132, 132, 132)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnCustomerRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(lblCustomerLogin_Password, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lblCustomerLogin_UserName, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtCustomerLogin_Password, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)
-                            .addComponent(btnCustomerLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCustomerLogin_UserName, javax.swing.GroupLayout.Alignment.LEADING)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(btnCustomerLoginBack, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(122, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(lblCustomerLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(203, 203, 203))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblCustomerLogin_ErrorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 546, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(132, 132, 132)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(btnCustomerRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblCustomerLogin_Password, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblCustomerLogin_UserName, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(txtCustomerLogin_Password, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)
+                                .addComponent(btnCustomerLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtCustomerLogin_UserName, javax.swing.GroupLayout.Alignment.LEADING)))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(47, 47, 47)
+                            .addComponent(btnCustomerLoginBack, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(122, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -111,7 +118,9 @@ public class CustomerLogin extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCustomerRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCustomerLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(133, Short.MAX_VALUE))
+                .addGap(33, 33, 33)
+                .addComponent(lblCustomerLogin_ErrorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         pack();
@@ -127,6 +136,28 @@ public class CustomerLogin extends javax.swing.JFrame {
     private void btnCustomerRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustomerRegisterActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCustomerRegisterActionPerformed
+
+    private void btnCustomerLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustomerLoginActionPerformed
+        // TODO add your handling code here:
+        
+        String userName = txtCustomerLogin_UserName.getText();
+        String passWord = txtCustomerLogin_Password.getText();
+        
+//         String username = "DonaldL";
+//        String password = "blehbleh";
+        
+        DBManager db = new DBManager();
+        Customer loggedInCustomer = db.customerLogin(userName, passWord);
+        
+        if(loggedInCustomer!=null){
+            CustomerHome cHome = new CustomerHome(loggedInCustomer);
+            cHome.setVisible(true);
+            this.setVisible(false);
+        }
+        else{
+            lblCustomerLogin_ErrorMessage.setText("error, incorrect reg number or manu name");
+        }
+    }//GEN-LAST:event_btnCustomerLoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -158,6 +189,7 @@ public class CustomerLogin extends javax.swing.JFrame {
     private javax.swing.JButton btnCustomerLoginBack;
     private javax.swing.JButton btnCustomerRegister;
     private javax.swing.JLabel lblCustomerLogin;
+    private javax.swing.JLabel lblCustomerLogin_ErrorMessage;
     private javax.swing.JLabel lblCustomerLogin_Password;
     private javax.swing.JLabel lblCustomerLogin_UserName;
     private javax.swing.JTextField txtCustomerLogin_Password;

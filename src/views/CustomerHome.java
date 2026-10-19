@@ -4,6 +4,8 @@
  */
 package views;
 
+import models.Customer;
+
 /**
  *
  * @author lichi
@@ -15,8 +17,9 @@ public class CustomerHome extends javax.swing.JFrame {
     /**
      * Creates new form CustomerHome
      */
-    public CustomerHome() {
+    public CustomerHome(Customer c) {
         initComponents();
+        lblCustomerHome_Greeting.setText(c.greeting());
     }
 
     /**
@@ -35,6 +38,7 @@ public class CustomerHome extends javax.swing.JFrame {
         btnCustomerHome_Logout = new javax.swing.JButton();
         lblStaffHome = new javax.swing.JLabel();
         btnCustomerHome_BackToMain = new javax.swing.JButton();
+        lblCustomerHome_Greeting = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(800, 600));
@@ -75,15 +79,16 @@ public class CustomerHome extends javax.swing.JFrame {
                 .addContainerGap(259, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lblStaffHome, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(235, 235, 235))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnCustomerHome_BrowseProduct1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnCustomerHome_EditOrders1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnCustomerHome_ViewMyOrder1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnCustomerHome_UnregisterFromShop, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(252, 252, 252))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lblStaffHome, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(235, 235, 235))))
+                            .addComponent(btnCustomerHome_UnregisterFromShop, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblCustomerHome_Greeting, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(252, 252, 252))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addComponent(btnCustomerHome_BackToMain, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -108,7 +113,9 @@ public class CustomerHome extends javax.swing.JFrame {
                 .addComponent(btnCustomerHome_EditOrders1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnCustomerHome_UnregisterFromShop, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(137, Short.MAX_VALUE))
+                .addGap(35, 35, 35)
+                .addComponent(lblCustomerHome_Greeting, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         pack();
@@ -143,7 +150,7 @@ public class CustomerHome extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new CustomerHome().setVisible(true));
+//        java.awt.EventQueue.invokeLater(() -> new CustomerHome().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -153,6 +160,7 @@ public class CustomerHome extends javax.swing.JFrame {
     private javax.swing.JButton btnCustomerHome_Logout;
     private javax.swing.JButton btnCustomerHome_UnregisterFromShop;
     private javax.swing.JButton btnCustomerHome_ViewMyOrder1;
+    private javax.swing.JLabel lblCustomerHome_Greeting;
     private javax.swing.JLabel lblStaffHome;
     // End of variables declaration//GEN-END:variables
 }

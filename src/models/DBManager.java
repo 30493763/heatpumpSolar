@@ -36,7 +36,7 @@ public class DBManager {
      * @return A Staff object if credentials match, otherwise null.
      */
     public Staff staffLogin(String userName, String password){
-        ArrayList<Staff> allStaffs = loadStaff();
+        ArrayList<Staff> allStaffs = loadStaffs();
          
         for(Staff staff : allStaffs){ 
             if( staff.getUserName().equals(userName) && staff.getPassword().equals(password) ){
@@ -100,7 +100,7 @@ public class DBManager {
      * Handles JDBC resource cleanup using try-with-resources.
      * @return An ArrayList containing all Staff records.
      */
-    public ArrayList<Staff> loadStaff() {
+    public ArrayList<Staff> loadStaffs() {
         ArrayList<Staff> allStaffs = new ArrayList<>();
 
         try {
@@ -127,7 +127,7 @@ public class DBManager {
                     salary
                 );
                 
-                System.out.println("adding Staff userName: " + userName);
+//                System.out.println("adding Staff userName: " + userName);
                 allStaffs.add(staffsFormDB);
             }
         } catch (Exception ex) {

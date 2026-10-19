@@ -32,7 +32,7 @@ public class Staff extends User {
                  String passwordIn,
                  String positionIn,
                  double salaryIn) {
-        super(firstNameIn, lastNameIn, userNameIn, passwordIn); // Call parent constructor
+        super(userNameIn, firstNameIn, lastNameIn , passwordIn); // Call parent constructor
         this.position = positionIn;
         this.salary = salaryIn;
     }

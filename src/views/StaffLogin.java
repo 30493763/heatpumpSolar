@@ -131,26 +131,23 @@ public class StaffLogin extends javax.swing.JFrame {
     private void btnStaffLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStaffLoginActionPerformed
         // TODO add your handling code here:
         
-//        String username = txtStaffLogin_UserName.getText();
-//        String password = txtStaffLogin_Password.getText();
+        String username = txtStaffLogin_UserName.getText();
+        String password = txtStaffLogin_Password.getText();
 
-        String username = "DonaldL1";
-        String password = "JamesH1";
-        
-        lblStaffLogin_ErrorMessage.setText("username: "+username+", password : "+password);
-     
+//        String username = "DonaldL1";
+//        String password = "blehbleh1";
+             
         DBManager db = new DBManager();
         Staff loggedInStaff = db.staffLogin(username, password);
-        lblStaffLogin_ErrorMessage.setText("loggedInStaff,username: "+loggedInStaff.getUserName()+", password : "+loggedInStaff.getPassword());
         
-//        if(loggedInStaff!=null){
-//            StaffHome sHome = new StaffHome(loggedInStaff);
-//            sHome.setVisible(true);
-//            this.setVisible(false);
-//        }
-//        else{
-//            lblStaffLogin_ErrorMessage.setText("error, incorrect reg number or manu name");
-//        }
+        if(loggedInStaff!=null){
+            StaffHome sHome = new StaffHome(loggedInStaff);
+            sHome.setVisible(true);
+            this.setVisible(false);
+        }
+        else{
+            lblStaffLogin_ErrorMessage.setText("error, incorrect Staff username or password");
+        }
     }//GEN-LAST:event_btnStaffLoginActionPerformed
 
     /**
@@ -175,7 +172,7 @@ public class StaffLogin extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new StaffLogin().setVisible(true));
+//        java.awt.EventQueue.invokeLater(() -> new StaffLogin().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

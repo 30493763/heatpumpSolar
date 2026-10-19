@@ -38,7 +38,6 @@ public class StaffHome extends javax.swing.JFrame {
         btnStaffLoginBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 600));
         setResizable(false);
 
         btnStaffHome_ModifyProduct.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
