@@ -161,13 +161,13 @@ public class DBManager {
                             
                 if(productType.equals("Solar Panel")){
                     SolarPanel sPanelFromDB = new SolarPanel(productId, productName, stockLevel, price, wattageOutput);
-                    System.out.println("in loadProducts, SolarPanel productName: " + productName);
+//                    System.out.println("in loadProducts, SolarPanel productName: " + productName);
         
                     allProducts.add(sPanelFromDB);
                 }
                 else if (productType.equals("Heat Pump")){
                     HeatPump hPumpFromDB = new HeatPump(productId, productName, stockLevel, price, efficiencyRating);
-                    System.out.println("in loadProducts, HeatPump productName: " + productName);
+//                    System.out.println("in loadProducts, HeatPump productName: " + productName);
 
                     allProducts.add(hPumpFromDB);
                 }

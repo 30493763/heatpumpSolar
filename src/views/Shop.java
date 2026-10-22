@@ -159,14 +159,14 @@ public class Shop extends javax.swing.JFrame {
         
              
         String productCategorySelected = lstShop_SelectCategory.getSelectedValue();
-        System.out.println("clickdd: " + productCategorySelected);
+        System.out.println("clicked: " + productCategorySelected);
         
         
         //creating new list Model before manupulating the model the form!!!
         DefaultListModel lstProductsModel = new DefaultListModel();
         
         for(Product product : allProducts){
-            System.out.println("in for loop, product.getProductType(): " + product.getProductType());
+//            System.out.println("in for loop, product.getProductType(): " + product.getProductType());
         
             if(product.getProductType().equals(productCategorySelected)){
                 lstProductsModel.addElement(product);
@@ -199,6 +199,7 @@ public class Shop extends javax.swing.JFrame {
         // check OrderLine class for the contrucstor with an animal object as the only param
         OrderLine ol = new OrderLine(selectedProduct);
         currentOrder.addOrderLine(ol);
+        lblShop_ErrorMessage.setText(selectedProduct.getProductname()+" added to basket");
     }//GEN-LAST:event_btnCustomerShop_AddToBasketActionPerformed
 
     /**
