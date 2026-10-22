@@ -32,8 +32,7 @@ public class Shop extends javax.swing.JFrame {
         allProducts = db.loadProducts();
         
         initComponents();
-        
-
+       
     }
 
     /**
@@ -194,6 +193,13 @@ public class Shop extends javax.swing.JFrame {
         
         //get product object from list
         Object selectedProductObject = (Object)lstShop_SelectProduct.getSelectedValue(); // casting the thing gotten from getSelectValue to an Object
+        
+        if(lstShop_SelectProduct.isSelectionEmpty()){
+           lblShop_ErrorMessage.setText(" click product first");
+           return;
+        }
+
+        
         Product selectedProduct = (Product)selectedProductObject; // casing the Object to class Animal
         
         // check OrderLine class for the contrucstor with an animal object as the only param
