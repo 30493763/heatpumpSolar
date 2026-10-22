@@ -27,6 +27,16 @@ public class Order {
         ol.setOrderLineId(orderLineId);
         orderLines.put(orderLineId, ol);      
     }
+    
+    public Integer countOrderLine(OrderLine ol){
+        int count = 0;
+        int orderLineId = 0;
+        
+        while(orderLines.containsKey(orderLineId)){
+            count++;
+        }
+        return count;
+    }
 
     // Constructors
     

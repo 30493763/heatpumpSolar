@@ -198,6 +198,9 @@ public class Shop extends javax.swing.JFrame {
            lblShop_ErrorMessage.setText(" click product first");
            return;
         }
+//        else if (currentOrder.countOrderLine(ol)==0){
+//            
+//        }
 
         
         Product selectedProduct = (Product)selectedProductObject; // casing the Object to class Animal
