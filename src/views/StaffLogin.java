@@ -31,7 +31,7 @@ public class StaffLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        lblStaffLogin_title = new javax.swing.JLabel();
         btnStaffLogin = new javax.swing.JButton();
         btnStaffLogin_BackToMain = new javax.swing.JButton();
         lblStaffLogin_UserName = new javax.swing.JLabel();
@@ -43,9 +43,9 @@ public class StaffLogin extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("STAFF LOGIN");
+        lblStaffLogin_title.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        lblStaffLogin_title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblStaffLogin_title.setText("STAFF LOGIN");
 
         btnStaffLogin.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnStaffLogin.setText("LOGIN");
@@ -91,7 +91,7 @@ public class StaffLogin extends javax.swing.JFrame {
                         .addComponent(lblStaffLogin_ErrorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(187, 187, 187)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblStaffLogin_title, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(44, 44, 44)
                         .addComponent(btnStaffLogin_BackToMain, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -103,7 +103,7 @@ public class StaffLogin extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addComponent(btnStaffLogin_BackToMain, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblStaffLogin_title, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(70, 70, 70)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblStaffLogin_UserName, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -179,10 +179,10 @@ public class StaffLogin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnStaffLogin;
     private javax.swing.JButton btnStaffLogin_BackToMain;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblStaffLogin_ErrorMessage;
     private javax.swing.JLabel lblStaffLogin_Password;
     private javax.swing.JLabel lblStaffLogin_UserName;
+    private javax.swing.JLabel lblStaffLogin_title;
     private javax.swing.JTextField txtStaffLogin_Password;
     private javax.swing.JTextField txtStaffLogin_UserName;
     // End of variables declaration//GEN-END:variables

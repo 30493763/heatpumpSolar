@@ -28,7 +28,7 @@ public class MainMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblMainMenu = new javax.swing.JLabel();
+        lblMainMenu_Titke = new javax.swing.JLabel();
         btnViewProduct = new javax.swing.JButton();
         btnCustomerLogin1 = new javax.swing.JButton();
         btnStaffLogin1 = new javax.swing.JButton();
@@ -37,10 +37,10 @@ public class MainMenu extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(800, 600));
         setResizable(false);
 
-        lblMainMenu.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        lblMainMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblMainMenu.setText("MAIN MENU");
-        lblMainMenu.setToolTipText("");
+        lblMainMenu_Titke.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        lblMainMenu_Titke.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblMainMenu_Titke.setText("MAIN MENU");
+        lblMainMenu_Titke.setToolTipText("");
 
         btnViewProduct.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnViewProduct.setText("VIEW PRODUCTS");
@@ -68,14 +68,14 @@ public class MainMenu extends javax.swing.JFrame {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(btnViewProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(btnStaffLogin1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(lblMainMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblMainMenu_Titke, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(197, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(75, 75, 75)
-                .addComponent(lblMainMenu)
+                .addComponent(lblMainMenu_Titke)
                 .addGap(115, 115, 115)
                 .addComponent(btnCustomerLogin1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
@@ -138,6 +138,6 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JButton btnCustomerLogin1;
     private javax.swing.JButton btnStaffLogin1;
     private javax.swing.JButton btnViewProduct;
-    private javax.swing.JLabel lblMainMenu;
+    private javax.swing.JLabel lblMainMenu_Titke;
     // End of variables declaration//GEN-END:variables
 }

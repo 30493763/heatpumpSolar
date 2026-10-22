@@ -40,7 +40,7 @@
                           </Group>
                       </Group>
                   </Group>
-                  <Component id="lblMainMenu" alignment="0" min="-2" pref="381" max="-2" attributes="0"/>
+                  <Component id="lblMainMenu_Titke" alignment="0" min="-2" pref="381" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="197" max="32767" attributes="0"/>
           </Group>
@@ -50,7 +50,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
-              <Component id="lblMainMenu" min="-2" max="-2" attributes="0"/>
+              <Component id="lblMainMenu_Titke" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
               <Component id="btnCustomerLogin1" min="-2" pref="50" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
@@ -63,7 +63,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="lblMainMenu">
+    <Component class="javax.swing.JLabel" name="lblMainMenu_Titke">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="36" style="1"/>

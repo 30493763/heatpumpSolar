@@ -25,7 +25,7 @@ public class Customer extends User {
         //String output = "Customer = "+getUserName();
 
 
-        return "Customer = "+this.getUserName();
+        return "Welcome Customer = "+this.getUserName();
     }
    
    

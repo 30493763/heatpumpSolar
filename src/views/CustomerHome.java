@@ -19,7 +19,7 @@ public class CustomerHome extends javax.swing.JFrame {
      */
     public CustomerHome(Customer c) {
         initComponents();
-        lblCustomerHome_Greeting.setText(c.greeting());
+        lblCustomerHome_Message.setText(c.greeting());
     }
 
     /**
@@ -36,12 +36,11 @@ public class CustomerHome extends javax.swing.JFrame {
         btnCustomerHome_ViewMyOrder1 = new javax.swing.JButton();
         btnCustomerHome_EditOrders1 = new javax.swing.JButton();
         btnCustomerHome_Logout = new javax.swing.JButton();
-        lblStaffHome = new javax.swing.JLabel();
+        lblCustomerHome_Title = new javax.swing.JLabel();
         btnCustomerHome_BackToMain = new javax.swing.JButton();
-        lblCustomerHome_Greeting = new javax.swing.JLabel();
+        lblCustomerHome_Message = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 600));
         setResizable(false);
 
         btnCustomerHome_UnregisterFromShop.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -64,9 +63,9 @@ public class CustomerHome extends javax.swing.JFrame {
         btnCustomerHome_Logout.setText("Logout");
         btnCustomerHome_Logout.setToolTipText("");
 
-        lblStaffHome.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        lblStaffHome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblStaffHome.setText("CUSTOMER HOME");
+        lblCustomerHome_Title.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        lblCustomerHome_Title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblCustomerHome_Title.setText("CUSTOMER HOME");
 
         btnCustomerHome_BackToMain.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnCustomerHome_BackToMain.setText("MAIN");
@@ -80,7 +79,7 @@ public class CustomerHome extends javax.swing.JFrame {
                 .addContainerGap(259, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lblStaffHome, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblCustomerHome_Title, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(235, 235, 235))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -88,7 +87,7 @@ public class CustomerHome extends javax.swing.JFrame {
                             .addComponent(btnCustomerHome_EditOrders1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnCustomerHome_ViewMyOrder1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnCustomerHome_UnregisterFromShop, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblCustomerHome_Greeting, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblCustomerHome_Message, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(252, 252, 252))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(42, 42, 42)
@@ -105,7 +104,7 @@ public class CustomerHome extends javax.swing.JFrame {
                     .addComponent(btnCustomerHome_BackToMain, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCustomerHome_Logout, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
-                .addComponent(lblStaffHome, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblCustomerHome_Title, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(72, 72, 72)
                 .addComponent(btnCustomerHome_BrowseProduct1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -115,7 +114,7 @@ public class CustomerHome extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btnCustomerHome_UnregisterFromShop, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
-                .addComponent(lblCustomerHome_Greeting, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblCustomerHome_Message, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(35, Short.MAX_VALUE))
         );
 
@@ -168,7 +167,7 @@ public class CustomerHome extends javax.swing.JFrame {
     private javax.swing.JButton btnCustomerHome_Logout;
     private javax.swing.JButton btnCustomerHome_UnregisterFromShop;
     private javax.swing.JButton btnCustomerHome_ViewMyOrder1;
-    private javax.swing.JLabel lblCustomerHome_Greeting;
-    private javax.swing.JLabel lblStaffHome;
+    private javax.swing.JLabel lblCustomerHome_Message;
+    private javax.swing.JLabel lblCustomerHome_Title;
     // End of variables declaration//GEN-END:variables
 }

@@ -12,7 +12,7 @@ public class Staff extends User {
     
         //polymorphism
     public String greeting(){
-        return "Staff = "+this.getUserName();
+        return "Welcome Staff = "+this.getUserName();
     }
     
     

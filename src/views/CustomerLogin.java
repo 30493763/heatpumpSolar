@@ -31,7 +31,7 @@ public class CustomerLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblCustomerLogin = new javax.swing.JLabel();
+        lblCustomerLogin_Title = new javax.swing.JLabel();
         lblCustomerLogin_UserName = new javax.swing.JLabel();
         lblCustomerLogin_Password = new javax.swing.JLabel();
         txtCustomerLogin_UserName = new javax.swing.JTextField();
@@ -45,9 +45,9 @@ public class CustomerLogin extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(800, 600));
 
-        lblCustomerLogin.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        lblCustomerLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblCustomerLogin.setText("CUSTOMER LOGIN");
+        lblCustomerLogin_Title.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        lblCustomerLogin_Title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblCustomerLogin_Title.setText("CUSTOMER LOGIN");
 
         lblCustomerLogin_UserName.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lblCustomerLogin_UserName.setText("User Name:");
@@ -81,7 +81,7 @@ public class CustomerLogin extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(lblCustomerLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblCustomerLogin_Title, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(203, 203, 203))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -113,7 +113,7 @@ public class CustomerLogin extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addComponent(btnCustomerLoginBack, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(7, 7, 7)
-                .addComponent(lblCustomerLogin)
+                .addComponent(lblCustomerLogin_Title)
                 .addGap(9, 9, 9)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38)
@@ -199,9 +199,9 @@ public class CustomerLogin extends javax.swing.JFrame {
     private javax.swing.JButton btnCustomerLoginBack;
     private javax.swing.JButton btnCustomerRegister;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel lblCustomerLogin;
     private javax.swing.JLabel lblCustomerLogin_ErrorMessage;
     private javax.swing.JLabel lblCustomerLogin_Password;
+    private javax.swing.JLabel lblCustomerLogin_Title;
     private javax.swing.JLabel lblCustomerLogin_UserName;
     private javax.swing.JTextField txtCustomerLogin_Password;
     private javax.swing.JTextField txtCustomerLogin_UserName;
