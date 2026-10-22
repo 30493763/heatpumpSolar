@@ -39,11 +39,12 @@ public class Shop extends javax.swing.JFrame {
         lblShop_SelectCategory = new javax.swing.JLabel();
         lblShop_SelectCategory1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        lstSelectProduct = new javax.swing.JList<>();
+        lstShop_SelectProduct = new javax.swing.JList<>();
         jScrollPane2 = new javax.swing.JScrollPane();
-        lstSelectCategory = new javax.swing.JList<>();
+        lstShop_SelectCategory = new javax.swing.JList<>();
         shopBackToMain = new javax.swing.JButton();
         lblShop_ErrorMessage = new javax.swing.JLabel();
+        lbl_Shop_Title = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(800, 600));
@@ -57,57 +58,64 @@ public class Shop extends javax.swing.JFrame {
         lblShop_SelectCategory1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblShop_SelectCategory1.setText("SELECT CATEGORY");
 
-        lstSelectProduct.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jScrollPane1.setViewportView(lstSelectProduct);
+        lstShop_SelectProduct.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jScrollPane1.setViewportView(lstShop_SelectProduct);
 
-        lstSelectCategory.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lstSelectCategory.setModel(new javax.swing.AbstractListModel<String>() {
+        lstShop_SelectCategory.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lstShop_SelectCategory.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Solar Panel", "Heat Pump" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        lstSelectCategory.addListSelectionListener(this::lstSelectCategoryValueChanged);
-        jScrollPane2.setViewportView(lstSelectCategory);
+        lstShop_SelectCategory.addListSelectionListener(this::lstShop_SelectCategoryValueChanged);
+        jScrollPane2.setViewportView(lstShop_SelectCategory);
 
         shopBackToMain.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         shopBackToMain.setText("MAIN");
-        shopBackToMain.setActionCommand("MAIN");
         shopBackToMain.addActionListener(this::shopBackToMainActionPerformed);
+
+        lbl_Shop_Title.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        lbl_Shop_Title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_Shop_Title.setText("CUSTOMER SHOP");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addComponent(lblShop_SelectCategory1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(66, 66, 66)
-                        .addComponent(lblShop_SelectCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(126, 126, 126)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblShop_SelectCategory1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(66, 66, 66)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblShop_SelectCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addComponent(shopBackToMain, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(65, 65, 65)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblShop_ErrorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 517, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(42, Short.MAX_VALUE))
+                        .addGap(143, 143, 143)
+                        .addComponent(lbl_Shop_Title, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(110, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lblShop_ErrorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 517, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(129, 129, 129))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addComponent(shopBackToMain, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addGap(42, 42, 42)
+                .addComponent(lbl_Shop_Title, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblShop_SelectCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblShop_SelectCategory1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -117,19 +125,17 @@ public class Shop extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(lblShop_ErrorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(121, Short.MAX_VALUE))
+                .addGap(109, 109, 109))
         );
-
-        shopBackToMain.getAccessibleContext().setAccessibleName("MAIN");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void lstSelectCategoryValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstSelectCategoryValueChanged
+    private void lstShop_SelectCategoryValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstShop_SelectCategoryValueChanged
         // TODO add your handling code here:
         
              
-        String productCategorySelected = lstSelectCategory.getSelectedValue();
+        String productCategorySelected = lstShop_SelectCategory.getSelectedValue();
         System.out.println("clickdd: " + productCategorySelected);
         
         
@@ -143,8 +149,8 @@ public class Shop extends javax.swing.JFrame {
                 lstProductsModel.addElement(product);
             }
         }
-        lstSelectProduct.setModel(lstProductsModel);
-    }//GEN-LAST:event_lstSelectCategoryValueChanged
+        lstShop_SelectProduct.setModel(lstProductsModel);
+    }//GEN-LAST:event_lstShop_SelectCategoryValueChanged
 
     private void shopBackToMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shopBackToMainActionPerformed
         // TODO add your handling code here:
@@ -184,8 +190,9 @@ public class Shop extends javax.swing.JFrame {
     private javax.swing.JLabel lblShop_ErrorMessage;
     private javax.swing.JLabel lblShop_SelectCategory;
     private javax.swing.JLabel lblShop_SelectCategory1;
-    private javax.swing.JList<String> lstSelectCategory;
-    private javax.swing.JList<String> lstSelectProduct;
+    private javax.swing.JLabel lbl_Shop_Title;
+    private javax.swing.JList<String> lstShop_SelectCategory;
+    private javax.swing.JList<String> lstShop_SelectProduct;
     private javax.swing.JButton shopBackToMain;
     // End of variables declaration//GEN-END:variables
 }

@@ -48,12 +48,10 @@ public class MainMenu extends javax.swing.JFrame {
 
         btnCustomerLogin1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnCustomerLogin1.setText("CUSTOMER LOGIN");
-        btnCustomerLogin1.setActionCommand("CUSTOMER LOGIN");
         btnCustomerLogin1.addActionListener(this::btnCustomerLogin1ActionPerformed);
 
         btnStaffLogin1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnStaffLogin1.setText("STAFF LOGIN");
-        btnStaffLogin1.setActionCommand("STAFF LOGIN");
         btnStaffLogin1.addActionListener(this::btnStaffLogin1ActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

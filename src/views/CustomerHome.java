@@ -50,6 +50,7 @@ public class CustomerHome extends javax.swing.JFrame {
 
         btnCustomerHome_BrowseProduct1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnCustomerHome_BrowseProduct1.setText("BROWSE PRODUCTS");
+        btnCustomerHome_BrowseProduct1.addActionListener(this::btnCustomerHome_BrowseProduct1ActionPerformed);
 
         btnCustomerHome_ViewMyOrder1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnCustomerHome_ViewMyOrder1.setText("VIEW ORDER");
@@ -127,6 +128,13 @@ public class CustomerHome extends javax.swing.JFrame {
         mMenu.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnCustomerHome_BackToMainActionPerformed
+
+    private void btnCustomerHome_BrowseProduct1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustomerHome_BrowseProduct1ActionPerformed
+        // TODO add your handling code here:
+        Shop shop = new Shop();
+        shop.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnCustomerHome_BrowseProduct1ActionPerformed
 
     /**
      * @param args the command line arguments

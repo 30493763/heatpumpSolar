@@ -21,7 +21,7 @@ public class Main {
         System.out.println("Loaded " + customers.size() + " customer records.");
 
         System.out.println("\n--- Loading Staff Records ---");
-        ArrayList<Staff> staffs = db.loadStaff();
+        ArrayList<Staff> staffs = db.loadStaffs();
         System.out.println("Loaded " + staffs.size() + " staff records.");
         
         // 2. Test Customer Login

@@ -90,7 +90,6 @@
           <Font name="Segoe UI" size="18" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="CUSTOMER LOGIN"/>
-        <Property name="actionCommand" type="java.lang.String" value="CUSTOMER LOGIN"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCustomerLogin1ActionPerformed"/>
@@ -102,7 +101,6 @@
           <Font name="Segoe UI" size="18" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="STAFF LOGIN"/>
-        <Property name="actionCommand" type="java.lang.String" value="STAFF LOGIN"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnStaffLogin1ActionPerformed"/>

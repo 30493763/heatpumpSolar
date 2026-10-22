@@ -41,7 +41,6 @@ public class StaffLogin extends javax.swing.JFrame {
         lblStaffLogin_ErrorMessage = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 600));
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
@@ -63,8 +62,10 @@ public class StaffLogin extends javax.swing.JFrame {
         lblStaffLogin_Password.setText("Password:");
 
         txtStaffLogin_UserName.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        txtStaffLogin_UserName.setText("DonaldL1");
 
         txtStaffLogin_Password.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        txtStaffLogin_Password.setText("blehbleh1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -172,7 +173,7 @@ public class StaffLogin extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(() -> new StaffLogin().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new StaffLogin().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
