@@ -16,6 +16,17 @@ public class Order {
     private double orderTotal;
     private String status;
     private HashMap<Integer, OrderLine> orderLines;
+    
+     //method to make sure / check if the key of each orderLine is unique
+    public void addOrderLine(OrderLine ol){
+        int orderLineId = 0;
+        
+        while(orderLines.containsKey(orderLineId)){
+            orderLineId++;
+        }
+        ol.setOrderLineId(orderLineId);
+        orderLines.put(orderLineId, ol);      
+    }
 
     // Constructors
     

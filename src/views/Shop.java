@@ -7,6 +7,8 @@ package views;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import models.DBManager;
+import models.Order;
+import models.OrderLine;
 import models.Product;
 
 /**
@@ -17,13 +19,20 @@ public class Shop extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Shop.class.getName());
     private ArrayList<Product> allProducts;
+    private Order currentOrder; // global variable for adding orderLines
+    
     /**
      * Creates new form Shop
      */
     public Shop() {
+        
+        currentOrder = new Order(); // 0 param constructer
+
         DBManager db = new DBManager();
         allProducts = db.loadProducts();
+        
         initComponents();
+        
 
     }
 
@@ -81,6 +90,7 @@ public class Shop extends javax.swing.JFrame {
 
         btnCustomerShop_AddToBasket.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnCustomerShop_AddToBasket.setText("Add to Basket");
+        btnCustomerShop_AddToBasket.addActionListener(this::btnCustomerShop_AddToBasketActionPerformed);
 
         btnCustomerShop_ViewBasket.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnCustomerShop_ViewBasket.setText("View Basket");
@@ -174,10 +184,22 @@ public class Shop extends javax.swing.JFrame {
 
     private void btnCustomerShop_ViewBasketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustomerShop_ViewBasketActionPerformed
         // TODO add your handling code here:
-        heatPumpSolar_Basket hpsBasket = new heatPumpSolar_Basket();
+        heatPumpSolar_Basket hpsBasket = new heatPumpSolar_Basket(currentOrder);
         hpsBasket.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnCustomerShop_ViewBasketActionPerformed
+
+    private void btnCustomerShop_AddToBasketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustomerShop_AddToBasketActionPerformed
+        // TODO add your handling code here:
+        
+        //get product object from list
+        Object selectedProductObject = (Object)lstShop_SelectProduct.getSelectedValue(); // casting the thing gotten from getSelectValue to an Object
+        Product selectedProduct = (Product)selectedProductObject; // casing the Object to class Animal
+        
+        // check OrderLine class for the contrucstor with an animal object as the only param
+        OrderLine ol = new OrderLine(selectedProduct);
+        currentOrder.addOrderLine(ol);
+    }//GEN-LAST:event_btnCustomerShop_AddToBasketActionPerformed
 
     /**
      * @param args the command line arguments

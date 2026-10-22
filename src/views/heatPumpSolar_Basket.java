@@ -4,6 +4,11 @@
  */
 package views;
 
+import java.util.Map;
+import javax.swing.table.DefaultTableModel;
+import models.Order;
+import models.OrderLine;
+
 /**
  *
  * @author lichi
@@ -15,8 +20,24 @@ public class heatPumpSolar_Basket extends javax.swing.JFrame {
     /**
      * Creates new form heatPumpSolar_Basket
      */
-    public heatPumpSolar_Basket() {
+    public heatPumpSolar_Basket(Order currentOrder) {
         initComponents();
+        
+        DefaultTableModel customerBasketModel = (DefaultTableModel)tblCustomerBasket.getModel();
+        
+        // make tne currentOrder iterable
+        for (Map.Entry<Integer, OrderLine> olMapEntry : currentOrder.getOrderLines().entrySet()){
+            OrderLine actualOrderLine = olMapEntry.getValue();
+            
+            customerBasketModel.addRow(new Object[] {
+                    actualOrderLine.getProductBought().getProductId(),
+                    actualOrderLine.getProductBought().getProductname() + " - " + actualOrderLine.getProductBought().getProductType(),
+                    "£" + actualOrderLine.getLineTotal()
+                }          
+            );// end of addRow
+        
+        }// end of for each loop
+        tblCustomerBasket.setModel(customerBasketModel);
     }
 
     /**
@@ -115,7 +136,7 @@ public class heatPumpSolar_Basket extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new heatPumpSolar_Basket().setVisible(true));
+//        java.awt.EventQueue.invokeLater(() -> new heatPumpSolar_Basket().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

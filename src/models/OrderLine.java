@@ -7,7 +7,7 @@ package models;
 public class OrderLine {
     // Private Attributes
     private int orderLineId;
-    private Product product;
+    private Product productBought;
     private int quantity;
     private double lineTotal;
 
@@ -16,9 +16,19 @@ public class OrderLine {
     // Default constructor (OrderLine())
     public OrderLine() {
         orderLineId = 101;
-        product = new Product();
+        productBought = new Product();
         quantity = 0;
         lineTotal = 0;
+    }
+    
+    
+    // constructor for object as only param
+    public OrderLine(Product productIn)
+    {
+        orderLineId = 0;
+        productBought = productIn;
+        quantity = 1;
+        lineTotal = productBought.getPrice();        
     }
 
     // Parameterized constructor with everything in parameters
@@ -30,7 +40,7 @@ public class OrderLine {
     {
     
         this.orderLineId = orderLineIdIn;
-        this.product = productIn;
+        this.productBought = productIn;
         this.quantity = quantityIn;
         this.lineTotal = lineTotalIn;
     }
@@ -42,9 +52,9 @@ public class OrderLine {
     {
        
         this.orderLineId = orderLineIdIn;
-        this.product = productIn;
+        this.productBought = productIn;
         this.quantity = quantityIn;
-        this.lineTotal = product.getPrice()*quantity;
+        this.lineTotal = productBought.getPrice()*quantity;
     }
   
     // Getter for orderLineId
@@ -58,13 +68,13 @@ public class OrderLine {
     }
 
     // Getter for product
-    public Product getProduct() {
-        return product;
+    public Product getProductBought() {
+        return productBought;
     }
 
     // Setter for product
-    public void setProduct(Product productIn) {
-        this.product = productIn;
+    public void setProductBought(Product productIn) {
+        this.productBought = productIn;
       
     }
 
