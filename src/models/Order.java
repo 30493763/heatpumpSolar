@@ -28,6 +28,7 @@ public class Order {
         orderLines.put(orderLineId, ol);      
     }
     
+    // return number of orderlines with 1 param
     public Integer countOrderLine(OrderLine ol){
         int count = 0;
         int orderLineId = 0;
@@ -37,6 +38,15 @@ public class Order {
         }
         return count;
     }
+    
+    // return number of orderlines with 0 param
+    public int countOrderLines() {
+        // Assuming 'this.orderLines' is the HashMap object holding all line items
+        return (int)this.orderLines.size(); 
+    }
+
+
+
 
     // Constructors
     

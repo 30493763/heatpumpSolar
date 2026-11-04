@@ -30,7 +30,7 @@ public class StaffAddProduct extends javax.swing.JFrame {
         initComponents();
         
         //loading products database into table
-        DefaultTableModel StaffProductListModel = (DefaultTableModel)tblStaffAddProduct.getModel();
+        DefaultTableModel StaffProductListModel = (DefaultTableModel)tblStaffProductList.getModel();
 
         for(Product product : allProducts){   
             StaffProductListModel.addRow(new Object[] {
@@ -42,7 +42,7 @@ public class StaffAddProduct extends javax.swing.JFrame {
             );// end of addRow
         
         }// end of for each loop
-        tblStaffAddProduct.setModel(StaffProductListModel);
+        tblStaffProductList.setModel(StaffProductListModel);
     }
 
     /**
@@ -55,20 +55,21 @@ public class StaffAddProduct extends javax.swing.JFrame {
     private void initComponents() {
 
         lblStaffAddProduct_Title = new javax.swing.JLabel();
-        btnStaffAddProduct_BackToStaffHome = new javax.swing.JButton();
+        btnStaffProductList_BackToStaffHome = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblStaffAddProduct = new javax.swing.JTable();
+        tblStaffProductList = new javax.swing.JTable();
+        btnStaffLProductList_AddProduct = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lblStaffAddProduct_Title.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         lblStaffAddProduct_Title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblStaffAddProduct_Title.setText("STAFF ADD PRODUCT");
+        lblStaffAddProduct_Title.setText("STAFF PRODUCT LIST");
 
-        btnStaffAddProduct_BackToStaffHome.setText("back to Shop");
-        btnStaffAddProduct_BackToStaffHome.addActionListener(this::btnStaffAddProduct_BackToStaffHomeActionPerformed);
+        btnStaffProductList_BackToStaffHome.setText("back to Shop");
+        btnStaffProductList_BackToStaffHome.addActionListener(this::btnStaffProductList_BackToStaffHomeActionPerformed);
 
-        tblStaffAddProduct.setModel(new javax.swing.table.DefaultTableModel(
+        tblStaffProductList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -76,7 +77,11 @@ public class StaffAddProduct extends javax.swing.JFrame {
                 "Product ID", "Product Name", "Price £", "Quantity"
             }
         ));
-        jScrollPane1.setViewportView(tblStaffAddProduct);
+        jScrollPane1.setViewportView(tblStaffProductList);
+
+        btnStaffLProductList_AddProduct.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnStaffLProductList_AddProduct.setText("ADD MORE PRODUCT");
+        btnStaffLProductList_AddProduct.addActionListener(this::btnStaffLProductList_AddProductActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -84,13 +89,15 @@ public class StaffAddProduct extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addComponent(btnStaffAddProduct_BackToStaffHome, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnStaffProductList_BackToStaffHome, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(lblStaffAddProduct_Title, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(131, 131, 131))
             .addGroup(layout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 718, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 718, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnStaffLProductList_AddProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -102,19 +109,26 @@ public class StaffAddProduct extends javax.swing.JFrame {
                         .addComponent(lblStaffAddProduct_Title, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(89, 89, 89)
-                        .addComponent(btnStaffAddProduct_BackToStaffHome)))
+                        .addComponent(btnStaffProductList_BackToStaffHome)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnStaffLProductList_AddProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(166, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnStaffAddProduct_BackToStaffHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStaffAddProduct_BackToStaffHomeActionPerformed
+    private void btnStaffProductList_BackToStaffHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStaffProductList_BackToStaffHomeActionPerformed
         // TODO add your handling code here:
 
-    }//GEN-LAST:event_btnStaffAddProduct_BackToStaffHomeActionPerformed
+    }//GEN-LAST:event_btnStaffProductList_BackToStaffHomeActionPerformed
+
+    private void btnStaffLProductList_AddProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStaffLProductList_AddProductActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_btnStaffLProductList_AddProductActionPerformed
 
     /**
      * @param args the command line arguments
@@ -142,9 +156,10 @@ public class StaffAddProduct extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnStaffAddProduct_BackToStaffHome;
+    private javax.swing.JButton btnStaffLProductList_AddProduct;
+    private javax.swing.JButton btnStaffProductList_BackToStaffHome;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblStaffAddProduct_Title;
-    private javax.swing.JTable tblStaffAddProduct;
+    private javax.swing.JTable tblStaffProductList;
     // End of variables declaration//GEN-END:variables
 }

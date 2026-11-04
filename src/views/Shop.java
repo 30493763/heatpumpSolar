@@ -57,6 +57,7 @@ public class Shop extends javax.swing.JFrame {
         btnCustomerShop_ViewBasket = new javax.swing.JButton();
         lblShop_Quantity = new javax.swing.JLabel();
         txtShop_Quantity = new java.awt.TextField();
+        btnShop_CountOrderLine = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -102,6 +103,10 @@ public class Shop extends javax.swing.JFrame {
 
         txtShop_Quantity.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 
+        btnShop_CountOrderLine.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnShop_CountOrderLine.setText("countOrderLine");
+        btnShop_CountOrderLine.addActionListener(this::btnShop_CountOrderLineActionPerformed);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -132,11 +137,16 @@ public class Shop extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(btnCustomerShop_ViewBasket, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblShop_Quantity, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtShop_Quantity, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(120, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblShop_Quantity, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtShop_Quantity, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(27, 27, 27)
+                                        .addComponent(btnShop_CountOrderLine, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                .addContainerGap(89, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -160,10 +170,12 @@ public class Shop extends javax.swing.JFrame {
                         .addComponent(txtShop_Quantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnCustomerShop_AddToBasket, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnCustomerShop_ViewBasket, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lblShop_ErrorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblShop_ErrorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(btnShop_CountOrderLine, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnCustomerShop_AddToBasket, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnCustomerShop_ViewBasket, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(44, 44, 44))
         );
 
@@ -200,9 +212,19 @@ public class Shop extends javax.swing.JFrame {
 
     private void btnCustomerShop_ViewBasketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustomerShop_ViewBasketActionPerformed
         // TODO add your handling code here:
-        heatPumpSolar_Basket hpsBasket = new heatPumpSolar_Basket(currentOrder);
-        hpsBasket.setVisible(true);
-        this.setVisible(false);
+        if ( currentOrder.countOrderLines() <= 0 ) {
+            lblShop_ErrorMessage.setText("Your basket is empty. Please add products before viewing.");
+            return; // Stop execution if empty
+        } 
+        else{
+            lblShop_ErrorMessage.setText("currentOrder.countOrderLine() = ");
+            heatPumpSolar_Basket hpsBasket = new heatPumpSolar_Basket(currentOrder);
+            hpsBasket.setVisible(true);
+            this.setVisible(false);
+        }
+        
+
+   
     }//GEN-LAST:event_btnCustomerShop_ViewBasketActionPerformed
 
     private void btnCustomerShop_AddToBasketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustomerShop_AddToBasketActionPerformed
@@ -220,13 +242,38 @@ public class Shop extends javax.swing.JFrame {
 //        }
 
         
+        // --- START Custom Validation Added by AI Assistant ---
+        String quantityText = txtShop_Quantity.getText();
+        int quantity = 0;
+        try {
+            quantity = Integer.parseInt(quantityText);
+            if (quantity <= 0) {
+                lblShop_ErrorMessage.setText("Error: Quantity must be a positive number greater than zero.");
+                return; // Exit method if validation fails
+            }
+        } catch (NumberFormatException e) {
+            lblShop_ErrorMessage.setText("Error: Invalid quantity entered.");
+            return; // Exit method if input is not an integer
+        }finally{
+            lblShop_ErrorMessage.setText("quantity is :"+ quantity);
+ 
+        }
+        // --- End Custom Validation ---
+        
         Product selectedProduct = (Product)selectedProductObject; // casing the Object to class Animal
         
         // check OrderLine class for the contrucstor with an animal object as the only param
-        OrderLine ol = new OrderLine(selectedProduct);
+        OrderLine ol = new OrderLine(selectedProduct, quantity);
         currentOrder.addOrderLine(ol);
         lblShop_ErrorMessage.setText(selectedProduct.getProductname()+" added to basket");
+        
     }//GEN-LAST:event_btnCustomerShop_AddToBasketActionPerformed
+
+    private void btnShop_CountOrderLineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShop_CountOrderLineActionPerformed
+        // TODO add your handling code here:
+        lblShop_ErrorMessage.setText("currentOrder.countOrderLine1 = "+currentOrder.countOrderLines());
+
+    }//GEN-LAST:event_btnShop_CountOrderLineActionPerformed
 
     /**
      * @param args the command line arguments
@@ -256,6 +303,7 @@ public class Shop extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCustomerShop_AddToBasket;
     private javax.swing.JButton btnCustomerShop_ViewBasket;
+    private javax.swing.JButton btnShop_CountOrderLine;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblShop_ErrorMessage;

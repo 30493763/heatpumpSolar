@@ -32,7 +32,9 @@ public class heatPumpSolar_Basket extends javax.swing.JFrame {
             customerBasketModel.addRow(new Object[] {
                     actualOrderLine.getProductBought().getProductId(),
                     actualOrderLine.getProductBought().getProductname() + " - " + actualOrderLine.getProductBought().getProductType(),
-                    "£" + actualOrderLine.getLineTotal()
+                    "£" + actualOrderLine.getLineTotal(),
+                    actualOrderLine.getQuantity(),
+                    "£" + actualOrderLine.getLineTotal()*actualOrderLine.getQuantity()
                 }          
             );// end of addRow
         
@@ -68,7 +70,7 @@ public class heatPumpSolar_Basket extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Product ID", "Product Name", "Cost"
+                "Product ID", "Product Name", "Cost", "Quantity", "Total"
             }
         ));
         jScrollPane1.setViewportView(tblCustomerBasket);

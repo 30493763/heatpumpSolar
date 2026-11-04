@@ -30,6 +30,15 @@ public class OrderLine {
         quantity = 1;
         lineTotal = productBought.getPrice();        
     }
+    
+     // constructor for object , and the quantity
+    public OrderLine(Product productIn, int quantityIn)
+    {
+        orderLineId = 0;
+        productBought = productIn;
+        quantity = quantityIn;
+        lineTotal = productBought.getPrice();        
+    }
 
     // Parameterized constructor with everything in parameters
     public OrderLine(int orderLineIdIn,
