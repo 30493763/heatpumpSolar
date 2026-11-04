@@ -39,18 +39,17 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="btnStaffHome_ModifyProduct" min="-2" pref="200" max="-2" attributes="0"/>
-                          <Component id="btnStaffHome_ViewAllOrders" min="-2" pref="200" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="btnStaffHome_AddProduct" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Component id="btnStaffHome_ViewAllOrders" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Component id="btnStaffHome_ModifyProduct1" alignment="1" min="-2" pref="200" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="lblStaffHome_message" min="-2" pref="209" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="lblStaffHome_message" min="-2" pref="400" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="162" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -66,25 +65,28 @@
               <Component id="lblStaffHome_Title" min="-2" pref="59" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="107" max="-2" attributes="0"/>
               <Component id="btnStaffHome_ViewAllOrders" min="-2" pref="50" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-              <Component id="btnStaffHome_ModifyProduct" min="-2" pref="50" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-              <Component id="lblStaffHome_message" min="-2" pref="124" max="-2" attributes="0"/>
-              <EmptySpace pref="56" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+              <Component id="btnStaffHome_ModifyProduct1" min="-2" pref="50" max="-2" attributes="0"/>
+              <EmptySpace pref="42" max="32767" attributes="0"/>
+              <Component id="btnStaffHome_AddProduct" min="-2" pref="50" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+              <Component id="lblStaffHome_message" min="-2" pref="40" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="btnStaffHome_ModifyProduct">
+    <Component class="javax.swing.JButton" name="btnStaffHome_AddProduct">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="MODIFY PRODUCT"/>
+        <Property name="text" type="java.lang.String" value="ADD PRODUCT"/>
+        <Property name="actionCommand" type="java.lang.String" value="ADD PRODUCT"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnStaffHome_ModifyProductActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnStaffHome_AddProductActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnStaffHome_Logout">
@@ -128,6 +130,17 @@
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblStaffHome_message">
+    </Component>
+    <Component class="javax.swing.JButton" name="btnStaffHome_ModifyProduct1">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="18" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="MODIFY PRODUCT"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnStaffHome_ModifyProduct1ActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

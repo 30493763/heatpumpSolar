@@ -31,19 +31,21 @@ public class StaffHome extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnStaffHome_ModifyProduct = new javax.swing.JButton();
+        btnStaffHome_AddProduct = new javax.swing.JButton();
         btnStaffHome_Logout = new javax.swing.JButton();
         btnStaffHome_ViewAllOrders = new javax.swing.JButton();
         lblStaffHome_Title = new javax.swing.JLabel();
         btnStaffLoginBack = new javax.swing.JButton();
         lblStaffHome_message = new javax.swing.JLabel();
+        btnStaffHome_ModifyProduct1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        btnStaffHome_ModifyProduct.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnStaffHome_ModifyProduct.setText("MODIFY PRODUCT");
-        btnStaffHome_ModifyProduct.addActionListener(this::btnStaffHome_ModifyProductActionPerformed);
+        btnStaffHome_AddProduct.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnStaffHome_AddProduct.setText("ADD PRODUCT");
+        btnStaffHome_AddProduct.setActionCommand("ADD PRODUCT");
+        btnStaffHome_AddProduct.addActionListener(this::btnStaffHome_AddProductActionPerformed);
 
         btnStaffHome_Logout.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnStaffHome_Logout.setText("Logout");
@@ -60,6 +62,10 @@ public class StaffHome extends javax.swing.JFrame {
         btnStaffLoginBack.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnStaffLoginBack.setText("MAIN");
         btnStaffLoginBack.addActionListener(this::btnStaffLoginBackActionPerformed);
+
+        btnStaffHome_ModifyProduct1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnStaffHome_ModifyProduct1.setText("MODIFY PRODUCT");
+        btnStaffHome_ModifyProduct1.addActionListener(this::btnStaffHome_ModifyProduct1ActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -78,14 +84,13 @@ public class StaffHome extends javax.swing.JFrame {
                         .addGap(36, 36, 36))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(54, 54, 54)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnStaffHome_ModifyProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnStaffHome_ViewAllOrders, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(btnStaffHome_AddProduct, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnStaffHome_ViewAllOrders, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnStaffHome_ModifyProduct1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblStaffHome_message, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap())))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblStaffHome_message, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(162, 162, 162))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -98,22 +103,24 @@ public class StaffHome extends javax.swing.JFrame {
                 .addComponent(lblStaffHome_Title, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(107, 107, 107)
                 .addComponent(btnStaffHome_ViewAllOrders, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addComponent(btnStaffHome_ModifyProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
-                .addComponent(lblStaffHome_message, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addGap(36, 36, 36)
+                .addComponent(btnStaffHome_ModifyProduct1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addComponent(btnStaffHome_AddProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42)
+                .addComponent(lblStaffHome_message, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(51, 51, 51))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnStaffHome_ModifyProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStaffHome_ModifyProductActionPerformed
+    private void btnStaffHome_AddProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStaffHome_AddProductActionPerformed
         // TODO add your handling code here:
         StaffProductPage sPPage = new StaffProductPage();
         sPPage.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_btnStaffHome_ModifyProductActionPerformed
+    }//GEN-LAST:event_btnStaffHome_AddProductActionPerformed
 
     private void btnStaffHome_ViewAllOrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStaffHome_ViewAllOrdersActionPerformed
         // TODO add your handling code here:
@@ -125,6 +132,10 @@ public class StaffHome extends javax.swing.JFrame {
         mMenu.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnStaffLoginBackActionPerformed
+
+    private void btnStaffHome_ModifyProduct1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStaffHome_ModifyProduct1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnStaffHome_ModifyProduct1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -152,8 +163,9 @@ public class StaffHome extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnStaffHome_AddProduct;
     private javax.swing.JButton btnStaffHome_Logout;
-    private javax.swing.JButton btnStaffHome_ModifyProduct;
+    private javax.swing.JButton btnStaffHome_ModifyProduct1;
     private javax.swing.JButton btnStaffHome_ViewAllOrders;
     private javax.swing.JButton btnStaffLoginBack;
     private javax.swing.JLabel lblStaffHome_Title;
