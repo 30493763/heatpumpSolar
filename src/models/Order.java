@@ -2,6 +2,7 @@ package models;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -44,7 +45,14 @@ public class Order {
         // Assuming 'this.orderLines' is the HashMap object holding all line items
         return (int)this.orderLines.size(); 
     }
-
+    
+    public double calculateLinesTotal(){
+        int orderLineId = 0;
+        double allLinesTotal = 0.0;
+        for (Map.Entry<Integer, OrderLine> ol : orderLines){
+        }
+        return allLinesTotal;
+    }
 
 
 
