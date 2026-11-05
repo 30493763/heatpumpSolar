@@ -12,6 +12,10 @@ import models.Order;
 import models.OrderLine;
 import models.Product;
 
+// finish of assessment 8
+// date: 5-Nov-26
+
+
 /**
  *
  * @author lichi
@@ -45,7 +49,7 @@ public class Shop extends javax.swing.JFrame {
     // constructor with 1 param: LOGGED IN CUSTOMER    
     public Shop(Customer c) {
         
-        customer = c;   
+        customer = c;   // LOGGED IN CUSTOMER
         currentOrder = new Order(); // CREATE NEW ORDER for LOGGED IN CUSTOMER
 
         DBManager db = new DBManager();
@@ -61,7 +65,7 @@ public class Shop extends javax.swing.JFrame {
     public Shop(Order o, Customer c) {
         
         customer = c;   
-        currentOrder =o; // CREATE NEW ORDER for LOGGED IN CUSTOMER
+        currentOrder =o; // REUSE THE ORDER THAT HAVE BEEN CREATED IN BASKET
 
         DBManager db = new DBManager();
         allProducts = db.loadProducts();
