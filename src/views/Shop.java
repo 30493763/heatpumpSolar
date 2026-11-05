@@ -6,6 +6,7 @@ package views;
 
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
+import models.Customer;
 import models.DBManager;
 import models.Order;
 import models.OrderLine;
@@ -20,20 +21,42 @@ public class Shop extends javax.swing.JFrame {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Shop.class.getName());
     private ArrayList<Product> allProducts;
     private Order currentOrder; // global variable for adding orderLines
+    private Customer customer;
     
     /**
      * Creates new form Shop
      */
+    
+    // constructor with 0 param: GUEST WITHOUT LOG IN
     public Shop() {
-        
-        currentOrder = new Order(); // 0 param constructer
 
         DBManager db = new DBManager();
         allProducts = db.loadProducts();
         
         initComponents();
-       
+        
+        //HIDE UN-NECCESSARY BUTTONS
+        btnCustomerShop_AddToBasket.setVisible(false);
+        btnCustomerShop_ViewBasket.setVisible(false);
+        btnShop_CountOrderLine.setVisible(false);
+
     }
+    
+    // constructor with 1 param: LOGGED IN CUSTOMER    
+    public Shop(Customer c) {
+        
+        customer = c;   
+        currentOrder = new Order(); // CREATE NEW ORDER for LOGGED IN CUSTOMER
+
+        DBManager db = new DBManager();
+        allProducts = db.loadProducts();
+        
+        initComponents();
+        
+        //HIDE UN-NECCESSARY BUTTONS
+        btnShop_CountOrderLine.setVisible(false);   
+    }
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -186,18 +209,14 @@ public class Shop extends javax.swing.JFrame {
 
     private void lstShop_SelectCategoryValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstShop_SelectCategoryValueChanged
         // TODO add your handling code here:
-        
-             
+                     
         String productCategorySelected = lstShop_SelectCategory.getSelectedValue();
         System.out.println("clicked: " + productCategorySelected);
-        
-        
+               
         //creating new list Model before manupulating the model the form!!!
         DefaultListModel lstProductsModel = new DefaultListModel();
         
-        for(Product product : allProducts){
-//            System.out.println("in for loop, product.getProductType(): " + product.getProductType());
-        
+        for(Product product : allProducts){        
             if(product.getProductType().equals(productCategorySelected)){
                 lstProductsModel.addElement(product);
             }
@@ -206,7 +225,7 @@ public class Shop extends javax.swing.JFrame {
     }//GEN-LAST:event_lstShop_SelectCategoryValueChanged
 
     private void shopBackToMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shopBackToMainActionPerformed
-        // TODO add your handling code here:
+        
         MainMenu mMenu = new MainMenu();
         mMenu.setVisible(true);
         this.setVisible(false);
@@ -220,7 +239,8 @@ public class Shop extends javax.swing.JFrame {
         } 
         else{
             lblShop_ErrorMessage.setText("currentOrder.countOrderLine() = ");
-            heatPumpSolar_Basket hpsBasket = new heatPumpSolar_Basket(currentOrder);
+            
+            heatPumpSolar_Basket hpsBasket = new heatPumpSolar_Basket(currentOrder, customer);
             hpsBasket.setVisible(true);
             this.setVisible(false);
         }
@@ -297,7 +317,7 @@ public class Shop extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new Shop().setVisible(true));
+//        java.awt.EventQueue.invokeLater(() -> new Shop().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

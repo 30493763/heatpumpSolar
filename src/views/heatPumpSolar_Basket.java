@@ -4,8 +4,11 @@
  */
 package views;
 
+import java.util.Date;
 import java.util.Map;
 import javax.swing.table.DefaultTableModel;
+import models.Customer;
+import models.DBManager;
 import models.Order;
 import models.OrderLine;
 
@@ -16,17 +19,24 @@ import models.OrderLine;
 public class heatPumpSolar_Basket extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(heatPumpSolar_Basket.class.getName());
-
+    
+    private Order currentOrder; // thats a global variable to be used in click event and pass into confirmation page
+    private Customer customer;
     /**
      * Creates new form heatPumpSolar_Basket
      */
-    public heatPumpSolar_Basket(Order currentOrder) {
+    public heatPumpSolar_Basket(Order o, Customer c) {
+        
+        currentOrder = o; // coping the passed in Order into currentOrder
+        customer = c;
         initComponents();
+        
+        lblCustomerBasket_Total.setText("Order Total: £"+o.getOrderTotal());
         
         DefaultTableModel customerBasketModel = (DefaultTableModel)tblCustomerBasket.getModel();
         
         // make tne currentOrder iterable
-        for (Map.Entry<Integer, OrderLine> olMapEntry : currentOrder.getOrderLines().entrySet()){
+        for (Map.Entry<Integer, OrderLine> olMapEntry : o.getOrderLines().entrySet()){
             OrderLine actualOrderLine = olMapEntry.getValue();
             
             customerBasketModel.addRow(new Object[] {
@@ -82,6 +92,7 @@ public class heatPumpSolar_Basket extends javax.swing.JFrame {
 
         btnCustomerBasket_Buy.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnCustomerBasket_Buy.setText("BUY");
+        btnCustomerBasket_Buy.addActionListener(this::btnCustomerBasket_BuyActionPerformed);
 
         btnCustomerBasket_AddMore.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnCustomerBasket_AddMore.setText("ADD MORE");
@@ -98,15 +109,14 @@ public class heatPumpSolar_Basket extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnCustomerBasket_BackToShop, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnCustomerBasket_BackToShop)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblCustomerBasket_Title, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(130, 130, 130))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 747, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -149,10 +159,26 @@ public class heatPumpSolar_Basket extends javax.swing.JFrame {
 
     private void btnCustomerBasket_BackToShopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustomerBasket_BackToShopActionPerformed
         // TODO add your handling code here:
-        Shop s = new Shop();
+        Shop s = new Shop(customer);
         s.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnCustomerBasket_BackToShopActionPerformed
+
+    private void btnCustomerBasket_BuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustomerBasket_BuyActionPerformed
+        // TODO add your handling code here:
+        
+        String userName = txtCustomerBasket_EnterUserName.getText();// getting the user name from text box
+        
+        currentOrder.setOrderDate(new Date() );
+        currentOrder.setStatus("Dispatched");
+        
+        DBManager db = new DBManager();
+        db.writeOrder(currentOrder, userName); // writing current order with user name into Database
+        
+        CustomerConfirmation cConfirmation = new CustomerConfirmation(customer);
+        cConfirmation.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnCustomerBasket_BuyActionPerformed
 
     /**
      * @param args the command line arguments

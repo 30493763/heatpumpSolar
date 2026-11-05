@@ -13,11 +13,13 @@ import models.Customer;
 public class CustomerHome extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(CustomerHome.class.getName());
-
+    private Customer customer;
+    
     /**
      * Creates new form CustomerHome
      */
     public CustomerHome(Customer c) {
+        customer = c;
         initComponents();
         lblCustomerHome_Message.setText(c.greeting());
     }
@@ -130,7 +132,7 @@ public class CustomerHome extends javax.swing.JFrame {
 
     private void btnCustomerHome_BrowseProduct1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustomerHome_BrowseProduct1ActionPerformed
         // TODO add your handling code here:
-        Shop shop = new Shop();
+        Shop shop = new Shop(customer);
         shop.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnCustomerHome_BrowseProduct1ActionPerformed

@@ -183,7 +183,7 @@ public class DBManager {
         
     } // end of loadProducts()
 
-//    public void writeOrder(Order o, String userName){
+    public void writeOrder(Order o, String userName){
 //        try
 //        {
 //            Class.forName(driver);
@@ -201,6 +201,6 @@ public class DBManager {
 //        catch(Exception ex){
 //            System.out.println("Error writing order : " + ex.getMessage()  );
 //        }
-//    }
+    }// end of writeOrder()
 
 }
