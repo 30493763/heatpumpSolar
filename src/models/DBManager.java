@@ -1,6 +1,7 @@
 package models;
 
 import java.sql.*;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 /**
@@ -181,4 +182,25 @@ public class DBManager {
         }
         
     } // end of loadProducts()
+
+    public void writeOrder(Order o, String userName){
+        try
+        {
+            Class.forName(driver);
+            Connection conn = DriverManager.getConnection(connectionString);
+            
+            Statement stmt = conn.createStatement();
+            stmt.executeUpdate("INSERT INTO Orders (orderId, orderDate, userName, orderTotal, status) VALUES ("
+                    + "'" + o.getOrderId() + "',"
+                    + "'" + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(o.getOrderDate())) + "',"
+                    + "'" + userName + "',"
+                    + "'" + o.getOrderTotal() + "',"
+                    + "'" + o.getStatus() + "')");
+            
+        }
+        catch(Exception ex){
+            System.out.println("Error writing order : " + ex.getMessage()  );
+        }
+    }
+
 }
