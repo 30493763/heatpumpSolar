@@ -26,7 +26,9 @@ public class Order {
             orderLineId++;
         }
         ol.setOrderLineId(orderLineId);
-        orderLines.put(orderLineId, ol);      
+        orderLines.put(orderLineId, ol);     
+        
+        calculateOrderTotal(); //updating orderTotal
     }
     
     // return number of orderlines with 1 param
@@ -46,12 +48,14 @@ public class Order {
         return (int)this.orderLines.size(); 
     }
     
-    public double calculateLinesTotal(){
-        int orderLineId = 0;
-        double allLinesTotal = 0.0;
-        for (Map.Entry<Integer, OrderLine> ol : orderLines){
+    
+    public void calculateOrderTotal(){
+        orderTotal = 0;
+
+        for(Map.Entry<Integer, OrderLine> olMapEntry : orderLines.entrySet()){
+            OrderLine actualOrderLine = olMapEntry.getValue();
+            orderTotal+=actualOrderLine.getLineTotal();
         }
-        return allLinesTotal;
     }
 
 
