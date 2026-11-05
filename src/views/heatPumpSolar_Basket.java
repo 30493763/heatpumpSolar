@@ -176,7 +176,7 @@ public class heatPumpSolar_Basket extends javax.swing.JFrame {
         DBManager db = new DBManager();
         db.writeOrder(currentOrder, userName); // writing current order with user name into Database
         
-        CustomerConfirmation cConfirmation = new CustomerConfirmation(customer);
+        CustomerConfirmation cConfirmation = new CustomerConfirmation(currentOrder, customer);
         cConfirmation.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnCustomerBasket_BuyActionPerformed
