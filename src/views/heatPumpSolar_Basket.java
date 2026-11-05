@@ -96,6 +96,7 @@ public class heatPumpSolar_Basket extends javax.swing.JFrame {
 
         btnCustomerBasket_AddMore.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnCustomerBasket_AddMore.setText("ADD MORE");
+        btnCustomerBasket_AddMore.addActionListener(this::btnCustomerBasket_AddMoreActionPerformed);
 
         lblCustomerBasket_EnterUserName.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblCustomerBasket_EnterUserName.setText("Enter Username:");
@@ -179,6 +180,15 @@ public class heatPumpSolar_Basket extends javax.swing.JFrame {
         cConfirmation.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnCustomerBasket_BuyActionPerformed
+
+    private void btnCustomerBasket_AddMoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustomerBasket_AddMoreActionPerformed
+        // TODO add your handling code here:
+        
+        Shop s = new Shop(currentOrder, customer);
+        s.setVisible(true);
+        this.setVisible(false);
+                
+    }//GEN-LAST:event_btnCustomerBasket_AddMoreActionPerformed
 
     /**
      * @param args the command line arguments

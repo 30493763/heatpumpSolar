@@ -56,6 +56,21 @@ public class Shop extends javax.swing.JFrame {
         //HIDE UN-NECCESSARY BUTTONS
         btnShop_CountOrderLine.setVisible(false);   
     }
+    
+    // constructor with 2 param: , currentOrder and LOGGED IN CUSTOMER    
+    public Shop(Order o, Customer c) {
+        
+        customer = c;   
+        currentOrder =o; // CREATE NEW ORDER for LOGGED IN CUSTOMER
+
+        DBManager db = new DBManager();
+        allProducts = db.loadProducts();
+        
+        initComponents();
+        
+        //HIDE UN-NECCESSARY BUTTONS
+        btnShop_CountOrderLine.setVisible(false);   
+    }
    
 
     /**
@@ -259,9 +274,6 @@ public class Shop extends javax.swing.JFrame {
            lblShop_ErrorMessage.setText(" click product first");
            return;
         }
-//        else if (currentOrder.countOrderLine(ol)==0){
-//            
-//        }
 
         
         // --- START Custom Validation Added by AI Assistant ---
