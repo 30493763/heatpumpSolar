@@ -83,6 +83,7 @@ public class StaffProductPage extends javax.swing.JFrame {
 
         btnStaffProductPage_ModifyProduct.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnStaffProductPage_ModifyProduct.setText("Modify Product");
+        btnStaffProductPage_ModifyProduct.addActionListener(this::btnStaffProductPage_ModifyProductActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -191,6 +192,17 @@ public class StaffProductPage extends javax.swing.JFrame {
         
         allProducts.remove(selectedProduct);
     }//GEN-LAST:event_btnStaffProductPage_DeleteProductActionPerformed
+
+    private void btnStaffProductPage_ModifyProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStaffProductPage_ModifyProductActionPerformed
+        // TODO add your handling code here:
+        Object  selectedProductObject = (Object)lstStaffProductPage_SelectProduct.getSelectedValue();
+        Product selectedProduct = (Product)selectedProductObject;
+        
+        StaffModifyProduct smProduct = new StaffModifyProduct(selectedProduct);
+        smProduct.setVisible(true);
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_btnStaffProductPage_ModifyProductActionPerformed
 
     /**
      * @param args the command line arguments

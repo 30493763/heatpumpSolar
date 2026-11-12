@@ -4,6 +4,8 @@
  */
 package views;
 
+import models.Product;
+
 /**
  *
  * @author lichi
@@ -11,12 +13,18 @@ package views;
 public class StaffModifyProduct extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(StaffModifyProduct.class.getName());
+    private Product product = new Product(); // make global coz editing the same animnal
 
     /**
      * Creates new form StaffModifyProduct
      */
-    public StaffModifyProduct() {
+    public StaffModifyProduct(Product p) {
+        
+        product = p;
         initComponents();
+        
+        txtStaffModifyProduct_ProductId.setText(String.valueOf(p.getProductId()));
+
     }
 
     /**
@@ -37,7 +45,6 @@ public class StaffModifyProduct extends javax.swing.JFrame {
         lblStaffModifyProduct_ProductType = new javax.swing.JLabel();
         lblStaffModifyProduct_ProductType1 = new javax.swing.JLabel();
         txtStaffModifyProduct_ProductId = new javax.swing.JTextField();
-        txtStaffModifyProduct_ProductId1 = new javax.swing.JTextField();
         txtStaffModifyProduct_ProductPrice = new javax.swing.JTextField();
         txtStaffModifyProduct_ProductExtra = new javax.swing.JTextField();
         txtStaffModifyProduct_ProductName2 = new javax.swing.JTextField();
@@ -75,8 +82,6 @@ public class StaffModifyProduct extends javax.swing.JFrame {
 
         txtStaffModifyProduct_ProductId.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        txtStaffModifyProduct_ProductId1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
         txtStaffModifyProduct_ProductPrice.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         txtStaffModifyProduct_ProductExtra.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -95,14 +100,9 @@ public class StaffModifyProduct extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addComponent(staffModifyProductPage_BackToMain, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtStaffModifyProduct_ProductId1, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(39, 39, 39)
+                .addComponent(staffModifyProductPage_BackToMain, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(661, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(139, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,13 +138,8 @@ public class StaffModifyProduct extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(38, 38, 38)
                 .addComponent(staffModifyProductPage_BackToMain, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(lbl_StaffModifyProductPage_Title, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(txtStaffModifyProduct_ProductId1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(28, 28, 28)
+                .addComponent(lbl_StaffModifyProductPage_Title, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblStaffModifyProduct_ProductID1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -206,7 +201,7 @@ public class StaffModifyProduct extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new StaffModifyProduct().setVisible(true));
+//        java.awt.EventQueue.invokeLater(() -> new StaffModifyProduct().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -221,7 +216,6 @@ public class StaffModifyProduct extends javax.swing.JFrame {
     private javax.swing.JButton staffModifyProductPage_BackToMain;
     private javax.swing.JTextField txtStaffModifyProduct_ProductExtra;
     private javax.swing.JTextField txtStaffModifyProduct_ProductId;
-    private javax.swing.JTextField txtStaffModifyProduct_ProductId1;
     private javax.swing.JTextField txtStaffModifyProduct_ProductName2;
     private javax.swing.JTextField txtStaffModifyProduct_ProductPrice;
     private javax.swing.JTextField txtStaffModifyProduct_ProductStockLevel;
