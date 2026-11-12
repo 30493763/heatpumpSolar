@@ -44,6 +44,8 @@ public class StaffProductPage extends javax.swing.JFrame {
         lblStaffProductPage_ErrorMessage = new javax.swing.JLabel();
         lblStaffProductPage_SelectCategory = new javax.swing.JLabel();
         lbl_StaffProductPage_Title = new javax.swing.JLabel();
+        btnStaffProductPage_DeleteProduct = new javax.swing.JButton();
+        btnStaffProductPage_ModifyProduct = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,6 +77,13 @@ public class StaffProductPage extends javax.swing.JFrame {
         lbl_StaffProductPage_Title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_StaffProductPage_Title.setText("STAFF PRODUCT PAGE");
 
+        btnStaffProductPage_DeleteProduct.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnStaffProductPage_DeleteProduct.setText("Delete Product");
+        btnStaffProductPage_DeleteProduct.addActionListener(this::btnStaffProductPage_DeleteProductActionPerformed);
+
+        btnStaffProductPage_ModifyProduct.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnStaffProductPage_ModifyProduct.setText("Modify Product");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -90,7 +99,7 @@ public class StaffProductPage extends javax.swing.JFrame {
                         .addComponent(lbl_StaffProductPage_Title, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(131, 131, 131))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblStaffProductPage_SelectCategory1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -102,11 +111,14 @@ public class StaffProductPage extends javax.swing.JFrame {
                                     .addComponent(lblStaffProductPage_SelectCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(6, 6, 6)
-                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(lblStaffProductPage_ErrorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 517, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(103, 103, 103))))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(btnStaffProductPage_DeleteProduct)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(btnStaffProductPage_ModifyProduct))))))
+                            .addComponent(lblStaffProductPage_ErrorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 564, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(141, 141, 141))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -115,7 +127,7 @@ public class StaffProductPage extends javax.swing.JFrame {
                 .addComponent(staffProductPage_BackToMain, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addComponent(lbl_StaffProductPage_Title, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblStaffProductPage_SelectCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblStaffProductPage_SelectCategory1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -123,9 +135,13 @@ public class StaffProductPage extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnStaffProductPage_DeleteProduct)
+                    .addComponent(btnStaffProductPage_ModifyProduct))
+                .addGap(18, 18, 18)
                 .addComponent(lblStaffProductPage_ErrorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(73, 73, 73))
+                .addGap(51, 51, 51))
         );
 
         pack();
@@ -157,6 +173,25 @@ public class StaffProductPage extends javax.swing.JFrame {
         lstStaffProductPage_SelectProduct.setModel(lstProductsModel);
     }//GEN-LAST:event_lstStaffProductPage_SelectCategoryValueChanged
 
+    private void btnStaffProductPage_DeleteProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStaffProductPage_DeleteProductActionPerformed
+        // TODO add your handling code here:
+        
+        Object  selectedProductObject = (Object)lstStaffProductPage_SelectProduct.getSelectedValue();
+        Product selectedProduct = (Product)selectedProductObject;
+        
+        DBManager db = new DBManager();
+        db.deleteProduct(selectedProduct.getProductId());
+        
+        lblStaffProductPage_ErrorMessage.setText("Product Deleted Successfully"); // display response
+        
+        //remove the deleted item from list model
+        DefaultListModel productsModel = (DefaultListModel)lstStaffProductPage_SelectProduct.getModel();
+        productsModel.remove(lstStaffProductPage_SelectProduct.getSelectedIndex());
+        lstStaffProductPage_SelectProduct.setModel(productsModel); // putting the model back to the list box
+        
+        allProducts.remove(selectedProduct);
+    }//GEN-LAST:event_btnStaffProductPage_DeleteProductActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -183,6 +218,8 @@ public class StaffProductPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnStaffProductPage_DeleteProduct;
+    private javax.swing.JButton btnStaffProductPage_ModifyProduct;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblStaffProductPage_ErrorMessage;

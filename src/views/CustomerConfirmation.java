@@ -5,6 +5,7 @@
 package views;
 
 import models.Customer;
+import models.Order;
 
 /**
  *
@@ -17,7 +18,7 @@ public class CustomerConfirmation extends javax.swing.JFrame {
     /**
      * Creates new form CustomerConfirmation
      */
-    public CustomerConfirmation(Customer c) {
+    public CustomerConfirmation(Order o, Customer c) {
         customer = c;
         initComponents();
     }

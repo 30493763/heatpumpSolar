@@ -183,24 +183,52 @@ public class DBManager {
         
     } // end of loadProducts()
 
+    public void deleteProduct(int productIdIn){
+         try
+        {
+            Class.forName(driver);
+            Connection conn = DriverManager.getConnection(connectionString);
+            
+            Statement stmt = conn.createStatement();
+            stmt.executeUpdate("DELETE FROM Products WHERE ProductId = "+productIdIn); // <- this is an SQL statement
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error loading Products: " + ex.getMessage());
+        }
+    }
+    
     public void writeOrder(Order o, String userName){
-//        try
-//        {
-//            Class.forName(driver);
-//            Connection conn = DriverManager.getConnection(connectionString);
-//            
-//            Statement stmt = conn.createStatement();
-//            stmt.executeUpdate("INSERT INTO Orders (orderId, orderDate, userName, orderTotal, status) VALUES ("
-//                    + "'" + o.getOrderId() + "',"
-//                    + "'" + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(o.getOrderDate())) + "',"
-//                    + "'" + userName + "',"
-//                    + "'" + o.getOrderTotal() + "',"
-//                    + "'" + o.getStatus() + "')");
-//            
-//        }
-//        catch(Exception ex){
-//            System.out.println("Error writing order : " + ex.getMessage()  );
-//        }
-    }// end of writeOrder()
+        // Conceptual Fix in writeOrder(Order o, String userName)
+
+        try (Connection conn = DriverManager.getConnection(connectionString); // Use try-with-resources for automatic closing
+             PreparedStatement pstmt = conn.prepareStatement(
+                 "INSERT INTO Orders (OrderId, OrderDate, UserName, OrderTotal, Status) VALUES (?, ?, ?, ?, ?)"
+             )) {
+
+            
+            
+            // Execute the insert using parameters to prevent SQL Injection and handle types correctly
+            pstmt.setInt(1, o.getOrderId()); // If you are setting it manually
+//            pstmt.setDate(2, o.getOrderDate()  ); // Assuming OrderDate holds a valid java.util.Date object
+            pstmt.setTimestamp(2, new java.sql.Timestamp(o.getOrderDate().getTime()));
+            pstmt.setString(3, userName); 
+            pstmt.setDouble(4, o.getOrderTotal()); // Use setDouble for numeric types
+            pstmt.setString(5, o.getStatus());
+
+            int rowsAffected = pstmt.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("Order successfully written to database.");
+            } else {
+                System.out.println("Failed to insert order record.");
+            }
+
+        } catch (SQLException e) {
+            // Handle SQLExceptions gracefully here
+            e.printStackTrace(); 
+            System.err.println("Database error during order insertion.");
+        }
+
+    }
 
 }
