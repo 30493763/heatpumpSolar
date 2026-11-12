@@ -43,6 +43,8 @@ public class Shop extends javax.swing.JFrame {
         btnCustomerShop_AddToBasket.setVisible(false);
         btnCustomerShop_ViewBasket.setVisible(false);
         btnShop_CountOrderLine.setVisible(false);
+        lblShop_Quantity.setVisible(false);
+        txtShop_Quantity.setVisible(false);
 
     }
     
