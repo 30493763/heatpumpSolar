@@ -13,8 +13,7 @@ public class HeatPump extends Product {
     // Default constructor (HeatPump())
     public HeatPump() {
         super();
-
-        efficiencyRating = 0;
+        efficiencyRating = 0.0;
     }
 
     // Parameterized constructor with 4 parameters (Everything EXCEPT productId)

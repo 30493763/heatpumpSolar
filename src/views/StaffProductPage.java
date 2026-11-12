@@ -165,7 +165,7 @@ public class StaffProductPage extends javax.swing.JFrame {
         DefaultListModel lstProductsModel = new DefaultListModel();
 
         for(Product product : allProducts){
-            System.out.println("in for loop, product.getProductType(): " + product.getProductType());
+//            System.out.println("in for loop, product.getProductType(): " + product.getProductType());
 
             if(product.getProductType().equals(productCategorySelected)){
                 lstProductsModel.addElement(product);

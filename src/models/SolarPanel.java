@@ -38,17 +38,6 @@ public class SolarPanel extends Product {
 
         this.wattageOutput = wattageOutputIn;
     }
-
-   
-//    // Getter for productType
-//    public String getProductType() {
-//        return productType;
-//    }
-//
-//    // Setter for productType
-//    public void setProductType(String productTypeIn) {
-//        this.productType = productTypeIn;
-//    }
     
     // Getter for wattageOutput
     public int getWattageOutput() {

@@ -4,7 +4,9 @@
  */
 package views;
 
+import models.HeatPump;
 import models.Product;
+import models.SolarPanel;
 
 /**
  *
@@ -24,6 +26,25 @@ public class StaffModifyProduct extends javax.swing.JFrame {
         initComponents();
         
         txtStaffModifyProduct_ProductId.setText(String.valueOf(p.getProductId()));
+        txtStaffModifyProduct_ProductId.setEditable(false);
+        
+        txtStaffModifyProduct_ProductName.setText(p.getProductname());
+        txtStaffModifyProduct_ProductPrice.setText(String.valueOf(p.getPrice()));
+        txtStaffModifyProduct_ProductStockLevel.setText(String.valueOf(p.getStockLevel()));
+        txtStaffModifyProduct_ProductType1.setText(p.getProductType());
+        
+//        System.out.println("p.getClass().getName(): " + p.getClass().getName());
+        
+        if(p.getClass().getName().equals("models.HeatPump")){
+            lblStaffModifyProduct_ProductExtra.setText("EFFICIENCY RATING: ");         
+//           System.out.println("EFFICIENCY RATING: " + ((HeatPump)p).getEfficiencyRating()   );
+            txtStaffModifyProduct_ProductExtra.setText(String.valueOf(((HeatPump)p).getEfficiencyRating()));    
+        }
+        else if(p.getClass().getName().equals("models.SolarPanel")){
+            lblStaffModifyProduct_ProductExtra.setText("WATTAGE OUTPUT: ");
+//           System.out.println("EFFICIENCY RATING: " + ((SolarPanel)p).getWattageOutput()   );           
+            txtStaffModifyProduct_ProductExtra.setText(String.valueOf(((SolarPanel)p).getWattageOutput())); 
+        }
 
     }
 
@@ -43,11 +64,11 @@ public class StaffModifyProduct extends javax.swing.JFrame {
         lblStaffModifyProduct_ProductName1 = new javax.swing.JLabel();
         lblStaffModifyProduct_ProductPrice = new javax.swing.JLabel();
         lblStaffModifyProduct_ProductType = new javax.swing.JLabel();
-        lblStaffModifyProduct_ProductType1 = new javax.swing.JLabel();
+        lblStaffModifyProduct_ProductExtra = new javax.swing.JLabel();
         txtStaffModifyProduct_ProductId = new javax.swing.JTextField();
         txtStaffModifyProduct_ProductPrice = new javax.swing.JTextField();
         txtStaffModifyProduct_ProductExtra = new javax.swing.JTextField();
-        txtStaffModifyProduct_ProductName2 = new javax.swing.JTextField();
+        txtStaffModifyProduct_ProductName = new javax.swing.JTextField();
         txtStaffModifyProduct_ProductStockLevel = new javax.swing.JTextField();
         txtStaffModifyProduct_ProductType1 = new javax.swing.JTextField();
         btnStaffModifyProduct_Update = new javax.swing.JButton();
@@ -77,8 +98,8 @@ public class StaffModifyProduct extends javax.swing.JFrame {
         lblStaffModifyProduct_ProductType.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblStaffModifyProduct_ProductType.setText("Product Type:");
 
-        lblStaffModifyProduct_ProductType1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblStaffModifyProduct_ProductType1.setText("Extra:");
+        lblStaffModifyProduct_ProductExtra.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblStaffModifyProduct_ProductExtra.setText("Extra:");
 
         txtStaffModifyProduct_ProductId.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
@@ -86,7 +107,7 @@ public class StaffModifyProduct extends javax.swing.JFrame {
 
         txtStaffModifyProduct_ProductExtra.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        txtStaffModifyProduct_ProductName2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtStaffModifyProduct_ProductName.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         txtStaffModifyProduct_ProductStockLevel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
@@ -94,6 +115,7 @@ public class StaffModifyProduct extends javax.swing.JFrame {
 
         btnStaffModifyProduct_Update.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnStaffModifyProduct_Update.setText("UPDATE");
+        btnStaffModifyProduct_Update.addActionListener(this::btnStaffModifyProduct_UpdateActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -113,12 +135,12 @@ public class StaffModifyProduct extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblStaffModifyProduct_ProductStockLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblStaffModifyProduct_ProductType, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblStaffModifyProduct_ProductType1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblStaffModifyProduct_ProductExtra, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(lblStaffModifyProduct_ProductName1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(64, 64, 64)
-                                    .addComponent(txtStaffModifyProduct_ProductName2, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtStaffModifyProduct_ProductName, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(lblStaffModifyProduct_ProductID1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -147,7 +169,7 @@ public class StaffModifyProduct extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblStaffModifyProduct_ProductName1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtStaffModifyProduct_ProductName2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtStaffModifyProduct_ProductName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblStaffModifyProduct_ProductPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -162,7 +184,7 @@ public class StaffModifyProduct extends javax.swing.JFrame {
                     .addComponent(txtStaffModifyProduct_ProductType1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblStaffModifyProduct_ProductType1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblStaffModifyProduct_ProductExtra, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtStaffModifyProduct_ProductExtra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31)
                 .addComponent(btnStaffModifyProduct_Update)
@@ -178,6 +200,16 @@ public class StaffModifyProduct extends javax.swing.JFrame {
         mMenu.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_staffModifyProductPage_BackToMainActionPerformed
+
+    private void btnStaffModifyProduct_UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStaffModifyProduct_UpdateActionPerformed
+        // TODO add your handling code here:
+        product.setProductName( txtStaffModifyProduct_ProductName.getText() );
+        product.setPrice( Double.parseDouble( txtStaffModifyProduct_ProductPrice.getText() ) );
+        product.setStockLevel( Integer.parseInt( txtStaffModifyProduct_ProductStockLevel.getText()));
+        product.setProductType( txtStaffModifyProduct_ProductType1.getText());
+        
+        
+    }//GEN-LAST:event_btnStaffModifyProduct_UpdateActionPerformed
 
     /**
      * @param args the command line arguments
@@ -206,17 +238,17 @@ public class StaffModifyProduct extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnStaffModifyProduct_Update;
+    private javax.swing.JLabel lblStaffModifyProduct_ProductExtra;
     private javax.swing.JLabel lblStaffModifyProduct_ProductID1;
     private javax.swing.JLabel lblStaffModifyProduct_ProductName1;
     private javax.swing.JLabel lblStaffModifyProduct_ProductPrice;
     private javax.swing.JLabel lblStaffModifyProduct_ProductStockLevel;
     private javax.swing.JLabel lblStaffModifyProduct_ProductType;
-    private javax.swing.JLabel lblStaffModifyProduct_ProductType1;
     private javax.swing.JLabel lbl_StaffModifyProductPage_Title;
     private javax.swing.JButton staffModifyProductPage_BackToMain;
     private javax.swing.JTextField txtStaffModifyProduct_ProductExtra;
     private javax.swing.JTextField txtStaffModifyProduct_ProductId;
-    private javax.swing.JTextField txtStaffModifyProduct_ProductName2;
+    private javax.swing.JTextField txtStaffModifyProduct_ProductName;
     private javax.swing.JTextField txtStaffModifyProduct_ProductPrice;
     private javax.swing.JTextField txtStaffModifyProduct_ProductStockLevel;
     private javax.swing.JTextField txtStaffModifyProduct_ProductType1;

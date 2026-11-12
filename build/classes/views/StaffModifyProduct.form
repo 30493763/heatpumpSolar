@@ -39,12 +39,12 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lblStaffModifyProduct_ProductStockLevel" min="-2" pref="124" max="-2" attributes="0"/>
                           <Component id="lblStaffModifyProduct_ProductType" alignment="0" min="-2" pref="124" max="-2" attributes="0"/>
-                          <Component id="lblStaffModifyProduct_ProductType1" alignment="0" min="-2" pref="124" max="-2" attributes="0"/>
+                          <Component id="lblStaffModifyProduct_ProductExtra" alignment="0" min="-2" pref="124" max="-2" attributes="0"/>
                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="lblStaffModifyProduct_ProductName1" min="-2" pref="124" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
-                                  <Component id="txtStaffModifyProduct_ProductName2" min="-2" pref="276" max="-2" attributes="0"/>
+                                  <Component id="txtStaffModifyProduct_ProductName" min="-2" pref="276" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -84,7 +84,7 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblStaffModifyProduct_ProductName1" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
-                  <Component id="txtStaffModifyProduct_ProductName2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtStaffModifyProduct_ProductName" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -103,7 +103,7 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblStaffModifyProduct_ProductType1" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                  <Component id="lblStaffModifyProduct_ProductExtra" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                   <Component id="txtStaffModifyProduct_ProductExtra" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
@@ -174,7 +174,7 @@
         <Property name="text" type="java.lang.String" value="Product Type:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblStaffModifyProduct_ProductType1">
+    <Component class="javax.swing.JLabel" name="lblStaffModifyProduct_ProductExtra">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="0"/>
@@ -203,7 +203,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtStaffModifyProduct_ProductName2">
+    <Component class="javax.swing.JTextField" name="txtStaffModifyProduct_ProductName">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="0"/>
@@ -231,6 +231,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="UPDATE"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnStaffModifyProduct_UpdateActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
