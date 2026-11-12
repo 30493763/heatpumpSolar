@@ -32,6 +32,7 @@ public class heatPumpSolar_Basket extends javax.swing.JFrame {
         initComponents();
         
         lblCustomerBasket_Total.setText("Order Total: £"+o.getOrderTotal());
+        txtCustomerBasket_EnterUserName.setText(c.getUserName());
         
         DefaultTableModel customerBasketModel = (DefaultTableModel)tblCustomerBasket.getModel();
         

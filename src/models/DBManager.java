@@ -183,25 +183,20 @@ public class DBManager {
         
     } // end of loadProducts()
 
-//    public void writeOrder(Order o, String userName){
-//        try
-//        {
-//            Class.forName(driver);
-//            Connection conn = DriverManager.getConnection(connectionString);
-//            
-//            Statement stmt = conn.createStatement();
-//            stmt.executeUpdate("INSERT INTO Orders (OrderId, OrderDate, UserName, OrderTotal, Status) VALUES ("
-//                    + "'" + o.getOrderId() + "',"
-//                    + "'" + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(o.getOrderDate())) + "',"
-//                    + "'" + userName + "',"
-//                    + "'" + o.getOrderTotal() + "',"
-//                    + "'" + o.getStatus() + "')");
-//            
-//        }
-//        catch(Exception ex){
-//            System.out.println("Error writing order : " + ex.getMessage()  );
-//        }
-//    }// end of writeOrder()
+    public void deleteProduct(int productIdIn){
+         try
+        {
+            Class.forName(driver);
+            Connection conn = DriverManager.getConnection(connectionString);
+            
+            Statement stmt = conn.createStatement();
+            stmt.executeUpdate("DELETE FROM Products WHERE ProductId = "+productIdIn); // <- this is an SQL statement
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error loading Products: " + ex.getMessage());
+        }
+    }
     
     public void writeOrder(Order o, String userName){
         // Conceptual Fix in writeOrder(Order o, String userName)

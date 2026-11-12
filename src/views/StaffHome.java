@@ -135,6 +135,9 @@ public class StaffHome extends javax.swing.JFrame {
 
     private void btnStaffHome_ModifyProduct1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStaffHome_ModifyProduct1ActionPerformed
         // TODO add your handling code here:
+        StaffProductPage spPage = new StaffProductPage();
+        spPage.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnStaffHome_ModifyProduct1ActionPerformed
 
     /**
