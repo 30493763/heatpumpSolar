@@ -4,6 +4,9 @@
  */
 package views;
 
+import java.util.HashSet;
+import java.util.Set;
+import models.DBManager;
 import models.HeatPump;
 import models.Product;
 import models.SolarPanel;
@@ -72,6 +75,7 @@ public class StaffModifyProduct extends javax.swing.JFrame {
         txtStaffModifyProduct_ProductStockLevel = new javax.swing.JTextField();
         txtStaffModifyProduct_ProductType1 = new javax.swing.JTextField();
         btnStaffModifyProduct_Update = new javax.swing.JButton();
+        lblStaffModifyProduct_Message = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -152,7 +156,10 @@ public class StaffModifyProduct extends javax.swing.JFrame {
                                         .addComponent(txtStaffModifyProduct_ProductStockLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(txtStaffModifyProduct_ProductType1, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(txtStaffModifyProduct_ProductExtra, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addComponent(btnStaffModifyProduct_Update, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(lblStaffModifyProduct_Message, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnStaffModifyProduct_Update, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(160, 160, 160))))
         );
         layout.setVerticalGroup(
@@ -187,7 +194,9 @@ public class StaffModifyProduct extends javax.swing.JFrame {
                     .addComponent(lblStaffModifyProduct_ProductExtra, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtStaffModifyProduct_ProductExtra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31)
-                .addComponent(btnStaffModifyProduct_Update)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblStaffModifyProduct_Message, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnStaffModifyProduct_Update, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
 
@@ -208,6 +217,31 @@ public class StaffModifyProduct extends javax.swing.JFrame {
         product.setStockLevel( Integer.parseInt( txtStaffModifyProduct_ProductStockLevel.getText()));
         product.setProductType( txtStaffModifyProduct_ProductType1.getText());
         
+        DBManager db = new DBManager();
+        if(product.getClass().getName().equals("models.HeatPump")){
+//            boolean canFly = Boolean.parseBoolean(txtExtraAttribute.getText());
+            double efficiencyRating = Double.parseDouble( txtStaffModifyProduct_ProductExtra.getText()  );
+//            Bird b = (Bird)animal;
+            HeatPump hp = (HeatPump)product;
+//            b.setCanFly(canFly);
+            hp.setEfficiencyRating(efficiencyRating);
+               
+            db.modifyProduct(hp);
+        }
+        else if(product.getClass().getName().equals("models.SolarPanel")){
+            
+//            String waterType = txtExtraAttribute.getText();
+            int wattageOutput = Integer.parseInt( txtStaffModifyProduct_ProductExtra.getText() );
+//            Fish f = (Fish)animal;
+            SolarPanel sp = (SolarPanel)product;
+//            f.setWaterType(waterType);
+            sp.setWattageOutput(wattageOutput);
+            
+//            db.editAnimal(f);
+            db.modifyProduct(sp);
+
+        }
+        lblStaffModifyProduct_Message.setText("product updated successfully");
         
     }//GEN-LAST:event_btnStaffModifyProduct_UpdateActionPerformed
 
@@ -238,6 +272,7 @@ public class StaffModifyProduct extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnStaffModifyProduct_Update;
+    private javax.swing.JLabel lblStaffModifyProduct_Message;
     private javax.swing.JLabel lblStaffModifyProduct_ProductExtra;
     private javax.swing.JLabel lblStaffModifyProduct_ProductID1;
     private javax.swing.JLabel lblStaffModifyProduct_ProductName1;

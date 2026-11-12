@@ -198,6 +198,26 @@ public class DBManager {
         }
     }
     
+    public void modifyProduct(Product p){
+         try
+        {
+            Class.forName(driver);
+            Connection conn = DriverManager.getConnection(connectionString);
+            
+            Statement stmt = conn.createStatement();
+            stmt.executeUpdate("UPDATE Products SET "
+                + "ProductName = '" +p.getProductname() + "',"
+                + "Price = '" + p.getPrice() + "',"
+                + "StockLevel = '" + p.getStockLevel() + "',"
+                + "ProductType = '" + p.getProductType() + "' "
+                + "WHERE ProductId = '" + p.getProductId() + "'"); // <- this is an SQL statement
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Error loading Animals: " + ex.getMessage());
+        }
+    }
+    
     public void writeOrder(Order o, String userName){
         // Conceptual Fix in writeOrder(Order o, String userName)
 
@@ -205,8 +225,7 @@ public class DBManager {
              PreparedStatement pstmt = conn.prepareStatement(
                  "INSERT INTO Orders (OrderId, OrderDate, UserName, OrderTotal, Status) VALUES (?, ?, ?, ?, ?)"
              )) {
-
-            
+   
             
             // Execute the insert using parameters to prevent SQL Injection and handle types correctly
             pstmt.setInt(1, o.getOrderId()); // If you are setting it manually
