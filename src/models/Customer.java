@@ -1,6 +1,7 @@
 package models;
 
 import java.util.HashMap;
+import java.util.LinkedList;
 
 /**
  *
@@ -16,6 +17,8 @@ public class Customer extends User {
     
     //newly added attribute Orders
    private HashMap<Integer, Order> orders;
+   private LinkedList<Integer> cardNumbers;
+
     
    
     //polymorphism
@@ -120,5 +123,15 @@ public class Customer extends User {
     //Setter for orders
     public void setOrders(HashMap<Integer, Order> ordersIn) {
         orders = ordersIn;
+    }
+    
+    //getter for LinkedList cardNumbers
+    public LinkedList<Integer> getCardNumbers(){
+        return cardNumbers;
+    }  
+    
+    //setter
+    public void setCardNumbers(LinkedList<Integer> cardNumbersIn){
+        cardNumbers = cardNumbersIn;
     }
 }
