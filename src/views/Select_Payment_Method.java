@@ -211,7 +211,8 @@ public class Select_Payment_Method extends javax.swing.JFrame {
             lbl_SelectPaymentMetho_MessageBox.setText("Error: caught in Exception");
         }
     }//GEN-LAST:event_btnSelectPaymentMethod_AddNewCardActionPerformed
-
+    
+    // click event for add default card
     private void btnSelectPaymentMethod_AddDefaultCardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectPaymentMethod_AddDefaultCardActionPerformed
         // TODO add your handling code here:
         try{
