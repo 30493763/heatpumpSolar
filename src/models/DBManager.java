@@ -199,7 +199,23 @@ public class DBManager {
     }
     
     public void modifyProduct(Product p){
-         try
+        
+        String additionalSQL = "";
+        
+        if(p.getClass().getName().equals("models.SolarPanel"))
+        {
+            SolarPanel SolarPanelIsTheProduct = (SolarPanel)p;
+            additionalSQL = "WattageOutput = '"+SolarPanelIsTheProduct.getWattageOutput() + "',";
+        }
+        else if(p.getClass().getName().equals("models.HeatPump"))
+        {
+            HeatPump HeatPumpIsTheProduct = (HeatPump)p;
+            additionalSQL = "EfficiencyRating = '"+HeatPumpIsTheProduct.getEfficiencyRating() + "',";
+        }
+        
+        
+        
+        try
         {
             Class.forName(driver);
             Connection conn = DriverManager.getConnection(connectionString);
@@ -208,6 +224,7 @@ public class DBManager {
             stmt.executeUpdate("UPDATE Products SET "
                 + "ProductName = '" +p.getProductname() + "',"
                 + "Price = '" + p.getPrice() + "',"
+                + additionalSQL
                 + "StockLevel = '" + p.getStockLevel() + "',"
                 + "ProductType = '" + p.getProductType() + "' "
                 + "WHERE ProductId = '" + p.getProductId() + "'"); // <- this is an SQL statement
