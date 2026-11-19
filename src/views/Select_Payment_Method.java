@@ -45,6 +45,7 @@ public class Select_Payment_Method extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jInternalFrame1 = new javax.swing.JInternalFrame();
         lbl_SelectPaymentMetho_Shop_Title = new javax.swing.JLabel();
         btnSelectPaymentMethod_backToMain = new javax.swing.JButton();
         lbl_SelectPaymentMetho_SelectPaymentCard = new javax.swing.JLabel();
@@ -59,6 +60,19 @@ public class Select_Payment_Method extends javax.swing.JFrame {
         btnSelectPaymentMethod_AddDefaultCard = new javax.swing.JButton();
         btnSelectPaymentMethod_DeleteSelectedCard = new javax.swing.JButton();
         lbl_SelectPaymentMetho_MessageBox = new javax.swing.JLabel();
+
+        jInternalFrame1.setVisible(true);
+
+        javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
+        jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
+        jInternalFrame1Layout.setHorizontalGroup(
+            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jInternalFrame1Layout.setVerticalGroup(
+            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -208,7 +222,7 @@ public class Select_Payment_Method extends javax.swing.JFrame {
             }
         }
         catch(Exception ex){
-            lbl_SelectPaymentMetho_MessageBox.setText("Error: caught in Exception");
+            lbl_SelectPaymentMetho_MessageBox.setText("card number must be integer");
         }
     }//GEN-LAST:event_btnSelectPaymentMethod_AddNewCardActionPerformed
     
@@ -218,7 +232,7 @@ public class Select_Payment_Method extends javax.swing.JFrame {
         try{
             String defaultCardNumber = txtSelectPaymentMethod_NewDefaultCard.getText();
             if(!defaultCardNumber.isBlank()){
-               loggedInCustomer.addCard(Integer.parseInt(defaultCardNumber));
+               loggedInCustomer.addFirstCard(Integer.parseInt(defaultCardNumber));
                lbl_SelectPaymentMetho_MessageBox.setText("New Default Card Added");
                showAllCardNumbers();
             }
@@ -227,7 +241,7 @@ public class Select_Payment_Method extends javax.swing.JFrame {
             }
         }
         catch(Exception ex){
-            lbl_SelectPaymentMetho_MessageBox.setText("Error: caught in Exception");
+            lbl_SelectPaymentMetho_MessageBox.setText("Default Card Number must be integer");
         }
     }//GEN-LAST:event_btnSelectPaymentMethod_AddDefaultCardActionPerformed
 
@@ -276,6 +290,7 @@ public class Select_Payment_Method extends javax.swing.JFrame {
     private javax.swing.JButton btnSelectPaymentMethod_DeleteSelectedCard;
     private javax.swing.JButton btnSelectPaymentMethod_backToMain;
     private javax.swing.JButton btn_SelectPaymentMethod_ConfirmPaymentMethod;
+    private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
