@@ -26,11 +26,26 @@ public class Customer extends User {
 //        String output = "Customer = "+this.getUserName();
         //or 
         //String output = "Customer = "+getUserName();
-
-
         return "Welcome Customer = "+this.getUserName();
     }
    
+    
+    //methods add , put the card to the end -> the LAST node
+    public void addCard(Integer cardIn){
+        cardNumbers.add(cardIn);
+    }
+    
+    //methods add , put the card  to the very first -> the FIRST node
+    public void addFirstCard(Integer cardIn){
+        cardNumbers.push(cardIn);       
+        // or you can use other one .addFirst
+        // cardNumbers.addFirst(cardIn);
+    }
+    
+    // method to remove specific node from list
+    public void removeCard(int nodeNumber){
+        cardNumbers.remove(nodeNumber); 
+    }
    
     // Constructors
     
