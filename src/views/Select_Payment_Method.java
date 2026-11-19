@@ -87,6 +87,7 @@ public class Select_Payment_Method extends javax.swing.JFrame {
 
         btnSelectPaymentMethod_AddNewCard.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnSelectPaymentMethod_AddNewCard.setText("Add New Card");
+        btnSelectPaymentMethod_AddNewCard.addActionListener(this::btnSelectPaymentMethod_AddNewCardActionPerformed);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setText("Enter New Default Card:");
@@ -95,9 +96,11 @@ public class Select_Payment_Method extends javax.swing.JFrame {
 
         btnSelectPaymentMethod_AddDefaultCard.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnSelectPaymentMethod_AddDefaultCard.setText("Add Default Card");
+        btnSelectPaymentMethod_AddDefaultCard.addActionListener(this::btnSelectPaymentMethod_AddDefaultCardActionPerformed);
 
         btnSelectPaymentMethod_DeleteSelectedCard.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnSelectPaymentMethod_DeleteSelectedCard.setText("Delete Selected Card");
+        btnSelectPaymentMethod_DeleteSelectedCard.addActionListener(this::btnSelectPaymentMethod_DeleteSelectedCardActionPerformed);
 
         lbl_SelectPaymentMetho_MessageBox.setText("blah blah blah");
 
@@ -190,6 +193,56 @@ public class Select_Payment_Method extends javax.swing.JFrame {
 //        cConfirmation.setVisible(true);
 //        this.setVisible(false);
     }//GEN-LAST:event_btn_SelectPaymentMethod_ConfirmPaymentMethodActionPerformed
+
+    private void btnSelectPaymentMethod_AddNewCardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectPaymentMethod_AddNewCardActionPerformed
+        // TODO add your handling code here:
+        try{
+            String cardNumber = txtSelectPaymentMethod_NewCardNumber.getText();
+            if(!cardNumber.isBlank()){
+               loggedInCustomer.addCard(Integer.parseInt(cardNumber));
+               lbl_SelectPaymentMetho_MessageBox.setText("New Card Added");
+               showAllCardNumbers();
+            }
+            else{
+                lbl_SelectPaymentMetho_MessageBox.setText("Error: Enter Card Number first");
+            }
+        }
+        catch(Exception ex){
+            lbl_SelectPaymentMetho_MessageBox.setText("Error: caught in Exception");
+        }
+    }//GEN-LAST:event_btnSelectPaymentMethod_AddNewCardActionPerformed
+
+    private void btnSelectPaymentMethod_AddDefaultCardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectPaymentMethod_AddDefaultCardActionPerformed
+        // TODO add your handling code here:
+        try{
+            String defaultCardNumber = txtSelectPaymentMethod_NewDefaultCard.getText();
+            if(!defaultCardNumber.isBlank()){
+               loggedInCustomer.addCard(Integer.parseInt(defaultCardNumber));
+               lbl_SelectPaymentMetho_MessageBox.setText("New Default Card Added");
+               showAllCardNumbers();
+            }
+            else{
+                lbl_SelectPaymentMetho_MessageBox.setText("Error: Enter New Default Card Number first");
+            }
+        }
+        catch(Exception ex){
+            lbl_SelectPaymentMetho_MessageBox.setText("Error: caught in Exception");
+        }
+    }//GEN-LAST:event_btnSelectPaymentMethod_AddDefaultCardActionPerformed
+
+    private void btnSelectPaymentMethod_DeleteSelectedCardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectPaymentMethod_DeleteSelectedCardActionPerformed
+        // TODO add your handling code here:
+        
+        if(lstSelectPaymentMethod_PaymentCards.getSelectedIndex() != -1 ){ // error detection
+            int indexOfCard =  lstSelectPaymentMethod_PaymentCards.getSelectedIndex();
+            loggedInCustomer.removeCard(indexOfCard);
+            lbl_SelectPaymentMetho_MessageBox.setText("Address Deleted");
+            showAllCardNumbers();
+        }
+        else{
+            lbl_SelectPaymentMetho_MessageBox.setText("Error: select address first");
+        }
+    }//GEN-LAST:event_btnSelectPaymentMethod_DeleteSelectedCardActionPerformed
 
     /**
      * @param args the command line arguments

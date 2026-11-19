@@ -199,6 +199,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Add New Card"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSelectPaymentMethod_AddNewCardActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
@@ -222,6 +225,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Add Default Card"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSelectPaymentMethod_AddDefaultCardActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnSelectPaymentMethod_DeleteSelectedCard">
       <Properties>
@@ -230,6 +236,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Delete Selected Card"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSelectPaymentMethod_DeleteSelectedCardActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lbl_SelectPaymentMetho_MessageBox">
       <Properties>
