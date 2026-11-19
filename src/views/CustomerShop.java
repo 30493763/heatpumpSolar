@@ -6,6 +6,7 @@ package views;
 
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 import models.Customer;
 import models.DBManager;
 import models.Order;
@@ -20,9 +21,9 @@ import models.Product;
  *
  * @author lichi
  */
-public class Shop extends javax.swing.JFrame {
+public class CustomerShop extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Shop.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(CustomerShop.class.getName());
     private ArrayList<Product> allProducts;
     private Order currentOrder; // global variable for adding orderLines
     private Customer customer;
@@ -32,7 +33,7 @@ public class Shop extends javax.swing.JFrame {
      */
     
     // constructor with 0 param: GUEST WITHOUT LOG IN
-    public Shop() {
+    public CustomerShop() {
 
         DBManager db = new DBManager();
         allProducts = db.loadProducts();
@@ -49,7 +50,7 @@ public class Shop extends javax.swing.JFrame {
     }
     
     // constructor with 1 param: LOGGED IN CUSTOMER    
-    public Shop(Customer c) {
+    public CustomerShop(Customer c) {
         
         customer = c;   // LOGGED IN CUSTOMER
         currentOrder = new Order(); // CREATE NEW ORDER for LOGGED IN CUSTOMER
@@ -64,7 +65,7 @@ public class Shop extends javax.swing.JFrame {
     }
     
     // constructor with 2 param: , currentOrder and LOGGED IN CUSTOMER    
-    public Shop(Order o, Customer c) {
+    public CustomerShop(Order o, Customer c) {
         
         customer = c;   
         currentOrder =o; // REUSE THE ORDER THAT HAVE BEEN CREATED IN BASKET
@@ -250,6 +251,7 @@ public class Shop extends javax.swing.JFrame {
         MainMenu mMenu = new MainMenu();
         mMenu.setVisible(true);
         this.setVisible(false);
+        
     }//GEN-LAST:event_shopBackToMainActionPerformed
 
     private void btnCustomerShop_ViewBasketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustomerShop_ViewBasketActionPerformed
@@ -335,7 +337,7 @@ public class Shop extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(() -> new Shop().setVisible(true));
+//        java.awt.EventQueue.invokeLater(() -> new CustomerShop().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

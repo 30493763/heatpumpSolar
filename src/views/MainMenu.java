@@ -90,7 +90,7 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void btnViewProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewProductActionPerformed
         // TODO add your handling code here:
-        Shop shop = new Shop();
+        CustomerShop shop = new CustomerShop();
         shop.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnViewProductActionPerformed

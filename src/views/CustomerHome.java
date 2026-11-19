@@ -132,7 +132,7 @@ public class CustomerHome extends javax.swing.JFrame {
 
     private void btnCustomerHome_BrowseProduct1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustomerHome_BrowseProduct1ActionPerformed
         // TODO add your handling code here:
-        Shop shop = new Shop(customer);
+        CustomerShop shop = new CustomerShop(customer);
         shop.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnCustomerHome_BrowseProduct1ActionPerformed

@@ -6,6 +6,7 @@ package views;
 
 import java.util.Date;
 import java.util.Map;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import models.Customer;
 import models.DBManager;
@@ -146,8 +147,8 @@ public class heatPumpSolar_Basket extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblCustomerBasket_Total, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
-                .addGap(50, 50, 50)
+                .addComponent(lblCustomerBasket_Total, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
+                .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCustomerBasket_Buy)
                     .addComponent(btnCustomerBasket_AddMore)
@@ -161,9 +162,29 @@ public class heatPumpSolar_Basket extends javax.swing.JFrame {
 
     private void btnCustomerBasket_BackToShopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustomerBasket_BackToShopActionPerformed
         // TODO add your handling code here:
-        Shop s = new Shop(customer);
-        s.setVisible(true);
-        this.setVisible(false);
+        
+        int response = JOptionPane.showConfirmDialog(
+            null,                                      // Parent component (null centers it on screen)
+            "Basket will be emptied, Are you sure you want to proceed?",       // Message inside the popup
+            "Confirm Action",                          // Window title
+            JOptionPane.YES_NO_OPTION,                 // Button options (Yes / No)
+            JOptionPane.QUESTION_MESSAGE               // Icon type
+        );
+
+        // Handle the user's response
+        if (response == JOptionPane.YES_OPTION) {
+//            System.out.println("User clicked Yes. Proceeding...");
+            CustomerShop s = new CustomerShop(customer);
+            s.setVisible(true);
+            this.setVisible(false);
+        } else if (response == JOptionPane.NO_OPTION) {
+            System.out.println("User clicked No. Action canceled.");
+        } else {
+            System.out.println("User closed the dialog.");
+        }
+        
+        
+
     }//GEN-LAST:event_btnCustomerBasket_BackToShopActionPerformed
 
     private void btnCustomerBasket_BuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustomerBasket_BuyActionPerformed
@@ -187,7 +208,7 @@ public class heatPumpSolar_Basket extends javax.swing.JFrame {
     private void btnCustomerBasket_AddMoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustomerBasket_AddMoreActionPerformed
         // TODO add your handling code here:
         
-        Shop s = new Shop(currentOrder, customer);
+        CustomerShop s = new CustomerShop(currentOrder, customer);
         s.setVisible(true);
         this.setVisible(false);
                 
