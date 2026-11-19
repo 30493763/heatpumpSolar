@@ -180,33 +180,45 @@ public class StaffProductPage extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         Object  selectedProductObject = (Object)lstStaffProductPage_SelectProduct.getSelectedValue();
-        Product selectedProduct = (Product)selectedProductObject;
+        try{
+            Product selectedProduct = (Product)selectedProductObject;
         
-        DBManager db = new DBManager();
-        db.deleteProduct(selectedProduct.getProductId());
-        
-        lblStaffProductPage_ErrorMessage.setText("Product Deleted Successfully"); // display response
-        
-        //remove the deleted item from list model
-        DefaultListModel productsModel = (DefaultListModel)lstStaffProductPage_SelectProduct.getModel();
-        productsModel.remove(lstStaffProductPage_SelectProduct.getSelectedIndex());
-        lstStaffProductPage_SelectProduct.setModel(productsModel); // putting the model back to the list box
-        
-        allProducts.remove(selectedProduct);
+            DBManager db = new DBManager();
+            db.deleteProduct(selectedProduct.getProductId());
+
+            lblStaffProductPage_ErrorMessage.setText("Product Deleted Successfully"); // display response
+
+            //remove the deleted item from list model
+            DefaultListModel productsModel = (DefaultListModel)lstStaffProductPage_SelectProduct.getModel();
+            productsModel.remove(lstStaffProductPage_SelectProduct.getSelectedIndex());
+            lstStaffProductPage_SelectProduct.setModel(productsModel); // putting the model back to the list box
+
+            allProducts.remove(selectedProduct);
+        }
+        catch(Exception ex){
+//            System.out.print(ex);
+            lblStaffProductPage_ErrorMessage.setText(ex.getMessage());
+        }       
     }//GEN-LAST:event_btnStaffProductPage_DeleteProductActionPerformed
 
     private void btnStaffProductPage_ModifyProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStaffProductPage_ModifyProductActionPerformed
         // TODO add your handling code here:
         Object  selectedProductObject = (Object)lstStaffProductPage_SelectProduct.getSelectedValue();
-        Product selectedProduct = (Product)selectedProductObject;
         
-        System.out.println("passing object to staff modify page, selectedProductObject: " + selectedProductObject);
-        System.out.println("passing object to staff modify page, selectedProduct: " + selectedProduct);
-        
-        StaffModifyProduct smProduct = new StaffModifyProduct(selectedProduct);
-        smProduct.setVisible(true);
-        this.setVisible(false);
-        
+        try{
+            Product selectedProduct = (Product)selectedProductObject;
+
+            System.out.println("passing object to staff modify page, selectedProductObject: " + selectedProductObject);
+            System.out.println("passing object to staff modify page, selectedProduct: " + selectedProduct);
+
+            StaffModifyProduct smProduct = new StaffModifyProduct(selectedProduct);
+            smProduct.setVisible(true);
+            this.setVisible(false);
+        }
+        catch(Exception ex){
+            lblStaffProductPage_ErrorMessage.setText(ex.getMessage());
+        }
+ 
     }//GEN-LAST:event_btnStaffProductPage_ModifyProductActionPerformed
 
     /**
