@@ -29,12 +29,13 @@ public class SolarPanel extends Product {
     
     
     // Parameterized constructor with 5 parameters (except ProductType)
-    public SolarPanel(int ProductId, 
-                    String ProductName, 
-                    int StockLevel, 
-                    double Price,
+    public SolarPanel(int ProductIdIn, 
+                    String ProductNameIn, 
+                    int StockLevelIn, 
+                    double PriceIn,
                     int wattageOutputIn) {
-        super(ProductId, ProductName, StockLevel, Price, "Solar Panel"); // Call parent constructor with all parameters
+        super(ProductIdIn, ProductNameIn, StockLevelIn, PriceIn, "Solar Panel"); // Call parent constructor with all parameters
+        System.out.println("in constructor, wattageOutputIn: " + wattageOutputIn);
 
         this.wattageOutput = wattageOutputIn;
     }

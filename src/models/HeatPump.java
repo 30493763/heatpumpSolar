@@ -34,7 +34,7 @@ public class HeatPump extends Product {
                     double PriceIn,
                     double efficiencyRatingIn) {
         super(ProductIdIn, ProductNameIn, StockLevelIn, PriceIn, "Heat Pump"); // Call parent constructor with all parameters
-        this.efficiencyRating = efficiencyRating;
+        this.efficiencyRating = efficiencyRatingIn;
     }
     
 

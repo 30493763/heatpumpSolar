@@ -169,8 +169,10 @@ public class StaffProductPage extends javax.swing.JFrame {
 
             if(product.getProductType().equals(productCategorySelected)){
                 lstProductsModel.addElement(product);
+                System.out.println("clicked, product: " + product);
             }
         }
+        
         lstStaffProductPage_SelectProduct.setModel(lstProductsModel);
     }//GEN-LAST:event_lstStaffProductPage_SelectCategoryValueChanged
 
@@ -197,6 +199,9 @@ public class StaffProductPage extends javax.swing.JFrame {
         // TODO add your handling code here:
         Object  selectedProductObject = (Object)lstStaffProductPage_SelectProduct.getSelectedValue();
         Product selectedProduct = (Product)selectedProductObject;
+        
+        System.out.println("passing object to staff modify page, selectedProductObject: " + selectedProductObject);
+        System.out.println("passing object to staff modify page, selectedProduct: " + selectedProduct);
         
         StaffModifyProduct smProduct = new StaffModifyProduct(selectedProduct);
         smProduct.setVisible(true);
