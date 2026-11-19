@@ -43,6 +43,7 @@ public class Customer extends User {
         postcode = "postcode_placeholder";
         isRegistered = false;
         orders =  new HashMap<>();
+        cardNumbers = new LinkedList();
     }
 
     // Parameterized constructor with 8 parameters (Everything EXCEPT isRegistered)
@@ -61,6 +62,7 @@ public class Customer extends User {
         this.postcode = postcodeIn;
         this.isRegistered = false;
         this.orders =  new HashMap<>();
+        cardNumbers = new LinkedList();
     }
 
     // Getters

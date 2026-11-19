@@ -1,0 +1,276 @@
+[33mcommit ef16369052df93b0b2babcbd8877fd47aaba9486[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mlinkedList[m[33m)[m
+Author: 30493763@cityofglacol.ac.uk <Siuhoho2026*>
+Date:   Thu Nov 19 15:05:08 2026 +0000
+
+    added getter and setter for the linkedlist cardNumbers
+
+[33mcommit 7a2f92700b59c601daf8a2c3d298c63bad5dbb32[m
+Author: 30493763@cityofglacol.ac.uk <Siuhoho2026*>
+Date:   Thu Nov 19 15:03:06 2026 +0000
+
+    added linkedlist<integer> to the class Customer
+
+[33mcommit 2fb8c120649416167c44f698c57e2b34631a7506[m[33m ([m[1;31morigin/staffProductPage[m[33m, [m[1;31morigin/main[m[33m, [m[1;32mstaffProductPage[m[33m, [m[1;32mmain[m[33m)[m
+Author: 30493763@cityofglacol.ac.uk <Siuhoho2026*>
+Date:   Thu Nov 19 11:13:29 2026 +0000
+
+    added try catch, and corresponding error message, to avoid no product has been selected before clicking delete or modify
+
+[33mcommit 67283f0f8445766a99b10f08d540cded7099425b[m
+Author: 30493763@cityofglacol.ac.uk <Siuhoho2026*>
+Date:   Thu Nov 19 11:05:39 2026 +0000
+
+    fixed the StaffModifyProduct page
+
+[33mcommit 773f3cc920335de998437e61c14d466e4c07d0aa[m
+Author: 30493763@cityofglacol.ac.uk <Siuhoho2026*>
+Date:   Thu Nov 19 10:54:18 2026 +0000
+
+    unlinking database file
+
+[33mcommit 91cb7e2e982cf8479e1a706e8ff99283491e142b[m
+Author: 30493763@cityofglacol.ac.uk <Siuhoho2026*>
+Date:   Thu Nov 19 10:53:08 2026 +0000
+
+    fixed the error 0.0
+
+[33mcommit 47577a841d6d5fe67555e3eca9323372ab3a4467[m
+Author: 30493763@cityofglacol.ac.uk <Siuhoho2026*>
+Date:   Thu Nov 19 09:56:45 2026 +0000
+
+    modified product by different type completed, need to find out where the error 0.0 came out for the next step
+
+[33mcommit 1943a7118875d598110a1c5fc1ecc2be5c36daba[m[33m ([m[1;31morigin/modifyProduct[m[33m)[m
+Author: 30493763@cityofglacol.ac.uk <Siuhoho2026*>
+Date:   Thu Nov 12 18:05:13 2026 +0000
+
+    added a new method in DBManager call modifyProduct
+
+[33mcommit 5b67059218c1ef34c171a861fabf316ddaae29aa[m
+Author: 30493763@cityofglacol.ac.uk <Siuhoho2026*>
+Date:   Thu Nov 12 17:50:42 2026 +0000
+
+    getting values from textboxs of StaffModifyProduct page
+
+[33mcommit f2501d5eac632483968b151b36c0a8cbc3746207[m
+Author: 30493763@cityofglacol.ac.uk <Siuhoho2026*>
+Date:   Thu Nov 12 17:16:53 2026 +0000
+
+    passing object product from staff page to staffmodifyproduct page
+
+[33mcommit a67e0aa8fa1280cb5027f114e3c6404f2999689e[m
+Author: 30493763@cityofglacol.ac.uk <Siuhoho2026*>
+Date:   Thu Nov 12 12:08:45 2026 +0000
+
+    created new page StaffModifyProduct
+
+[33mcommit 7bca5155a5afb083823045e0ccd8bc0720b422d9[m
+Author: 30493763@cityofglacol.ac.uk <Siuhoho2026*>
+Date:   Thu Nov 12 11:56:14 2026 +0000
+
+    replace with original ShopDB
+
+[33mcommit 5cab8ea817461ad337817235a3707d04e8a5d108[m
+Merge: 9ba6806 6d8953e
+Author: 30493763@cityofglacol.ac.uk <Siuhoho2026*>
+Date:   Thu Nov 12 11:54:13 2026 +0000
+
+    getting ready to merge with branch - deleteProduct
+
+[33mcommit 6d8953e148dc612128c488f0587d20af399e06bf[m
+Author: 30493763@cityofglacol.ac.uk <Siuhoho2026*>
+Date:   Thu Nov 12 11:52:00 2026 +0000
+
+    assessment 9 finsihed
+
+[33mcommit d5c5e2672ec032fabbb1244cbc1ee29275a6f322[m
+Author: 30493763@cityofglacol.ac.uk <Siuhoho2026*>
+Date:   Thu Nov 12 11:49:23 2026 +0000
+
+    created a copy of ShopDB file just in case
+
+[33mcommit 4ae608ea4edb25cea8f9ff2a15b548c79a6d0a5f[m
+Author: 30493763@cityofglacol.ac.uk <Siuhoho2026*>
+Date:   Thu Nov 12 11:47:57 2026 +0000
+
+    replace the original ShopDB file
+
+[33mcommit 9ba6806fe15368b3792b9a665a23cb0c8be6776e[m
+Author: 30493763@cityofglacol.ac.uk <Siuhoho2026*>
+Date:   Thu Nov 12 11:47:20 2026 +0000
+
+    dont know whats goig on
+
+[33mcommit 42aad7d0d774668d6e7b511f27d4f317c1828f84[m
+Author: 30493763@cityofglacol.ac.uk <Siuhoho2026*>
+Date:   Thu Nov 12 11:44:44 2026 +0000
+
+    removed product successful
+
+[33mcommit 6a6fc3be0cd5583676f06514b0ec45cff5587035[m
+Author: 30493763@cityofglacol.ac.uk <Siuhoho2026*>
+Date:   Thu Nov 12 11:37:05 2026 +0000
+
+    click event on button -modify product,  access to StaffProductPage
+
+[33mcommit f931f8e9332f63b0ea5c36594f31fdc70e4423eb[m[33m ([m[1;32mbuy[m[33m)[m
+Author: 30493763@cityofglacol.ac.uk <Siuhoho2026*>
+Date:   Thu Nov 12 11:09:19 2026 +0000
+
+    set quantity in shop page invisible for non registered customers
+
+[33mcommit 1276deda0b7110268d260e0e032d2fc21cc264c5[m
+Author: 30493763@cityofglacol.ac.uk <Siuhoho2026*>
+Date:   Thu Nov 5 17:57:02 2026 +0000
+
+    fixing the setDate in method writeOrder, have not test yet
+
+[33mcommit 186d418faa5c7cf7b5c1c97828ce60a8e58f1e29[m
+Author: 30493763@cityofglacol.ac.uk <Siuhoho2026*>
+Date:   Thu Nov 5 17:15:21 2026 +0000
+
+    pass in order and customer to CustomerConfirmation.java
+
+[33mcommit 184e303f0ae625cb83dad3040cd6ecab05b11f5e[m
+Author: 30493763@cityofglacol.ac.uk <Siuhoho2026*>
+Date:   Thu Nov 5 17:05:31 2026 +0000
+
+    finish of assessement 8
+
+[33mcommit a085009a6dd11a1bf408c7c8ec5fa15debd8b8f1[m
+Author: 30493763@cityofglacol.ac.uk <Siuhoho2026*>
+Date:   Thu Nov 5 16:57:02 2026 +0000
+
+    add more button click, can pass the current order and customer back to page - Shop.java
+
+[33mcommit 5517157d845974577013be9d18736a5932f80c29[m
+Author: 30493763@cityofglacol.ac.uk <Siuhoho2026*>
+Date:   Thu Nov 5 16:41:08 2026 +0000
+
+    added confirmation page, the back to customer home button is working by passing in parameter : customer into Shop.java; also, create a constructor with 0 parameter for visitor to browse products in Shop.java
+
+[33mcommit 7fde5581fe174db8b4f5bf013b6874080208c0f1[m
+Author: 30493763@cityofglacol.ac.uk <Siuhoho2026*>
+Date:   Thu Nov 5 11:43:49 2026 +0000
+
+    temperory muting writeOrder in DBManager
+
+[33mcommit 3aa046ac8bdedd99d2f82907e66bca7580e8cbde[m
+Author: 30493763@cityofglacol.ac.uk <Siuhoho2026*>
+Date:   Thu Nov 5 11:41:22 2026 +0000
+
+    added a method writeOrder into DBManager, but there is error in it, move on to basket first
+
+[33mcommit 7afebe96a87084e209ba647648d47a4718a36758[m
+Author: 30493763@cityofglacol.ac.uk <Siuhoho2026*>
+Date:   Thu Nov 5 11:14:11 2026 +0000
+
+    added method calculateOrderTotal() into Order.java, updated in method addOrderLine() as well
+
+[33mcommit d911f34d1c2997233738c973abdc0308d015aa50[m
+Author: 30493763@cityofglacol.ac.uk <Siuhoho2026*>
+Date:   Thu Nov 5 11:07:12 2026 +0000
+
+    added method calculateOrderTotal() into Order.java, updated in method addOrderLine() as well
+
+[33mcommit 886063000ed273e76bdb20d855fc0c633e9d293e[m
+Author: 30493763@cityofglacol.ac.uk <Siuhoho2026*>
+Date:   Wed Nov 4 23:59:35 2026 +0000
+
+    trying to add method calculateLinesTotal in Order.java
+
+[33mcommit 6576c7ed2eb27149e12da3fccc59b6c37663ba43[m
+Author: 30493763@cityofglacol.ac.uk <Siuhoho2026*>
+Date:   Wed Nov 4 19:03:23 2026 +0000
+
+    added buttons and label to Basket
+
+[33mcommit 16307ae9d1f2ca6100460299d449bbb528424380[m
+Author: 30493763@cityofglacol.ac.uk <Siuhoho2026*>
+Date:   Wed Nov 4 19:03:03 2026 +0000
+
+    added buttons and label to Basket
+
+[33mcommit 1d5b1c9e6230c3569177812a73af999f58d71aec[m
+Author: 30493763@cityofglacol.ac.uk <Siuhoho2026*>
+Date:   Wed Nov 4 18:23:53 2026 +0000
+
+    corrected error message for quantity <0 or empty in Shop.java
+
+[33mcommit 0e2fa9bfa751b496328c092e627012db164c8c5c[m
+Author: 30493763@cityofglacol.ac.uk <Siuhoho2026*>
+Date:   Wed Nov 4 17:57:43 2026 +0000
+
+    add function countOrderLines to the Order.java; also in Shop.java, have checked if basket(currentOrder) is empty before proceeding to next page
+
+[33mcommit 8a459854cfa8e56b52e1a757d04542f0e9c37099[m
+Author: 30493763@cityofglacol.ac.uk <Siuhoho2026*>
+Date:   Wed Nov 4 15:56:39 2026 +0000
+
+    add jframe - staff product list
+
+[33mcommit 1e0bc4f78f17931da1b2a6bfbb6d0916481d102c[m
+Author: 30493763@cityofglacol.ac.uk <Siuhoho2026*>
+Date:   Wed Nov 4 13:58:41 2026 +0000
+
+    added quantity label and text field to Shop
+
+[33mcommit 1c92eace30cb5b807acf859e92b014ba67721348[m
+Author: 30493763@cityofglacol.ac.uk <Siuhoho2026*>
+Date:   Thu Oct 22 17:22:46 2026 +0100
+
+    added a new method in Order.form, try to return the number of orderLines but failed
+
+[33mcommit 3b60522b452b60d84a5a10259a1af195c8085502[m
+Author: 30493763@cityofglacol.ac.uk <Siuhoho2026*>
+Date:   Thu Oct 22 17:13:17 2026 +0100
+
+    for shop.form , add response to ask user to click on product first
+
+[33mcommit 0cefc393613a38aec98a0a42675bf5b11a23db81[m
+Author: 30493763@cityofglacol.ac.uk <Siuhoho2026*>
+Date:   Thu Oct 22 17:07:56 2026 +0100
+
+    cleared up unneccesary comments and added response message after product added to basket
+
+[33mcommit 74642029a32c27e710b647348f1aa2214c69801b[m
+Author: 30493763@cityofglacol.ac.uk <Siuhoho2026*>
+Date:   Thu Oct 22 17:01:18 2026 +0100
+
+    successfully added selected products to baskets and shown on the Basket page
+
+[33mcommit 4fc96ce3793f729c216252881e461e4e3de19e22[m
+Author: 30493763@cityofglacol.ac.uk <Siuhoho2026*>
+Date:   Thu Oct 22 16:18:18 2026 +0100
+
+    added table to basket page
+
+[33mcommit 31a14b9303dbffdfa190a5073ab86aa0ca732705[m
+Author: 30493763@cityofglacol.ac.uk <Siuhoho2026*>
+Date:   Thu Oct 22 13:09:52 2026 +0100
+
+    added welcome message to staffhome and customerhome
+
+[33mcommit d6c00eed7e34254699a5cb2f7405010b33491496[m
+Author: 30493763@cityofglacol.ac.uk <Siuhoho2026*>
+Date:   Thu Oct 22 10:03:09 2026 +0100
+
+    added StaffProductPage and modified the Shop page a bit
+
+[33mcommit af89841704a9b80cde264f0edb1b0e851131f30d[m
+Author: 30493763@cityofglacol.ac.uk <Siuhoho2026*>
+Date:   Mon Oct 19 12:28:56 2026 +0100
+
+    finished customerLogin and staffLogin, passed object customer c / staff s from login page to home page; fixed custructor in class Staff.java (parameters sequence)
+
+[33mcommit 85c51d51ebd16b937092532bc784ed6342b76537[m
+Author: 30493763@cityofglacol.ac.uk <Siuhoho2026*>
+Date:   Mon Oct 19 12:28:20 2026 +0100
+
+    finished customerLogin and staffLogin, passed object customer c / staff s from login page to home page; fixed custructor in class Staff.java (parameters sequence)
+
+[33mcommit 429d0c3afae6a5d19da8efe17cb410faf17017f2[m
+Author: 30493763@cityofglacol.ac.uk <Siuhoho2026*>
+Date:   Fri Oct 16 11:00:39 2026 +0100
+
+    first commit
