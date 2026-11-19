@@ -32,11 +32,15 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jLabel1" min="-2" pref="170" max="-2" attributes="0"/>
-                                  <Component id="jScrollPane1" alignment="0" pref="0" max="32767" attributes="0"/>
-                                  <Component id="btn_SelectPaymentMethod_ConfirmPaymentMethod" alignment="0" min="-2" pref="261" max="-2" attributes="0"/>
+                          <Component id="lbl_SelectPaymentMetho_Shop_Title" min="-2" pref="670" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="btnSelectPaymentMethod_DeleteSelectedCard" min="-2" pref="178" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="lbl_SelectPaymentMetho_SelectPaymentCard" min="-2" pref="170" max="-2" attributes="0"/>
+                                      <Component id="jScrollPane1" alignment="0" pref="0" max="32767" attributes="0"/>
+                                      <Component id="btn_SelectPaymentMethod_ConfirmPaymentMethod" alignment="0" min="-2" pref="261" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -54,9 +58,9 @@
                                       <Component id="txtSelectPaymentMethod_NewDefaultCard" min="-2" pref="235" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="btnSelectPaymentMethod_AddDefaultCard" alignment="1" min="-2" pref="155" max="-2" attributes="0"/>
+                                  <Component id="lbl_SelectPaymentMetho_MessageBox" max="32767" attributes="0"/>
                               </Group>
                           </Group>
-                          <Component id="lbl_SelectPaymentMetho_Shop_Title" min="-2" pref="670" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -74,7 +78,7 @@
               <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbl_SelectPaymentMetho_SelectPaymentCard" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jScrollPane1" min="-2" pref="186" max="-2" attributes="0"/>
@@ -99,9 +103,14 @@
                       <EmptySpace min="-2" pref="133" max="-2" attributes="0"/>
                   </Group>
               </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btn_SelectPaymentMethod_ConfirmPaymentMethod" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbl_SelectPaymentMetho_MessageBox" alignment="3" min="-2" pref="63" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="btn_SelectPaymentMethod_ConfirmPaymentMethod" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="127" max="32767" attributes="0"/>
+              <Component id="btnSelectPaymentMethod_DeleteSelectedCard" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="52" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -127,7 +136,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSelectPaymentMethod_backToMainActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="lbl_SelectPaymentMetho_SelectPaymentCard">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="0"/>
@@ -209,6 +218,19 @@
           <Font name="Segoe UI" size="14" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Add Default Card"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnSelectPaymentMethod_DeleteSelectedCard">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Delete Selected Card"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbl_SelectPaymentMetho_MessageBox">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="blah blah blah"/>
       </Properties>
     </Component>
   </SubComponents>

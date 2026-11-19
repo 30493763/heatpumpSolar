@@ -4,6 +4,8 @@
  */
 package views;
 
+import models.Customer;
+
 /**
  *
  * @author lichi
@@ -11,11 +13,12 @@ package views;
 public class Select_Payment_Method extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Select_Payment_Method.class.getName());
-
+    private Customer loggedInCustomer;
     /**
      * Creates new form Select_Payment_Method
      */
-    public Select_Payment_Method() {
+    public Select_Payment_Method(Customer c) {
+        loggedInCustomer = c;
         initComponents();
     }
 
@@ -30,7 +33,7 @@ public class Select_Payment_Method extends javax.swing.JFrame {
 
         lbl_SelectPaymentMetho_Shop_Title = new javax.swing.JLabel();
         btnSelectPaymentMethod_backToMain = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        lbl_SelectPaymentMetho_SelectPaymentCard = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
         btn_SelectPaymentMethod_ConfirmPaymentMethod = new javax.swing.JButton();
@@ -40,6 +43,8 @@ public class Select_Payment_Method extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txtSelectPaymentMethod_NewDefaultCard = new javax.swing.JTextField();
         btnSelectPaymentMethod_AddDefaultCard = new javax.swing.JButton();
+        btnSelectPaymentMethod_DeleteSelectedCard = new javax.swing.JButton();
+        lbl_SelectPaymentMetho_MessageBox = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,8 +56,8 @@ public class Select_Payment_Method extends javax.swing.JFrame {
         btnSelectPaymentMethod_backToMain.setText("MAIN");
         btnSelectPaymentMethod_backToMain.addActionListener(this::btnSelectPaymentMethod_backToMainActionPerformed);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel1.setText("Select Payment Card:");
+        lbl_SelectPaymentMetho_SelectPaymentCard.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lbl_SelectPaymentMetho_SelectPaymentCard.setText("Select Payment Card:");
 
         jList1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jScrollPane1.setViewportView(jList1);
@@ -76,6 +81,11 @@ public class Select_Payment_Method extends javax.swing.JFrame {
         btnSelectPaymentMethod_AddDefaultCard.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnSelectPaymentMethod_AddDefaultCard.setText("Add Default Card");
 
+        btnSelectPaymentMethod_DeleteSelectedCard.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSelectPaymentMethod_DeleteSelectedCard.setText("Delete Selected Card");
+
+        lbl_SelectPaymentMetho_MessageBox.setText("blah blah blah");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -88,11 +98,14 @@ public class Select_Payment_Method extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(49, 49, 49)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbl_SelectPaymentMetho_Shop_Title, javax.swing.GroupLayout.PREFERRED_SIZE, 670, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                    .addComponent(btn_SelectPaymentMethod_ConfirmPaymentMethod, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btnSelectPaymentMethod_DeleteSelectedCard, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(lbl_SelectPaymentMetho_SelectPaymentCard, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                        .addComponent(btn_SelectPaymentMethod_ConfirmPaymentMethod, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -105,8 +118,8 @@ public class Select_Payment_Method extends javax.swing.JFrame {
                                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(txtSelectPaymentMethod_NewDefaultCard, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(btnSelectPaymentMethod_AddDefaultCard, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(lbl_SelectPaymentMetho_Shop_Title, javax.swing.GroupLayout.PREFERRED_SIZE, 670, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(btnSelectPaymentMethod_AddDefaultCard, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbl_SelectPaymentMetho_MessageBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                 .addContainerGap(68, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -119,7 +132,7 @@ public class Select_Payment_Method extends javax.swing.JFrame {
                 .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(lbl_SelectPaymentMetho_SelectPaymentCard)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -137,9 +150,13 @@ public class Select_Payment_Method extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnSelectPaymentMethod_AddNewCard)
                         .addGap(133, 133, 133)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_SelectPaymentMethod_ConfirmPaymentMethod)
+                    .addComponent(lbl_SelectPaymentMetho_MessageBox, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(btn_SelectPaymentMethod_ConfirmPaymentMethod)
-                .addContainerGap(127, Short.MAX_VALUE))
+                .addComponent(btnSelectPaymentMethod_DeleteSelectedCard)
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         pack();
@@ -180,13 +197,15 @@ public class Select_Payment_Method extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSelectPaymentMethod_AddDefaultCard;
     private javax.swing.JButton btnSelectPaymentMethod_AddNewCard;
+    private javax.swing.JButton btnSelectPaymentMethod_DeleteSelectedCard;
     private javax.swing.JButton btnSelectPaymentMethod_backToMain;
     private javax.swing.JButton btn_SelectPaymentMethod_ConfirmPaymentMethod;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lbl_SelectPaymentMetho_MessageBox;
+    private javax.swing.JLabel lbl_SelectPaymentMetho_SelectPaymentCard;
     private javax.swing.JLabel lbl_SelectPaymentMetho_Shop_Title;
     private javax.swing.JTextField txtSelectPaymentMethod_NewCardNumber;
     private javax.swing.JTextField txtSelectPaymentMethod_NewDefaultCard;
