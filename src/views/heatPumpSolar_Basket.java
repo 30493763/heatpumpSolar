@@ -179,7 +179,7 @@ public class heatPumpSolar_Basket extends javax.swing.JFrame {
         
 //        CustomerConfirmation cConfirmation = new CustomerConfirmation(currentOrder, customer);
 //        cConfirmation.setVisible(true);
-        Select_Payment_Method SPMethod = new Select_Payment_Method(customer);
+        Select_Payment_Method SPMethod = new Select_Payment_Method(currentOrder, customer);
         SPMethod.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnCustomerBasket_BuyActionPerformed

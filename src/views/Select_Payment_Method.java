@@ -6,6 +6,7 @@ package views;
 
 import javax.swing.DefaultListModel;
 import models.Customer;
+import models.Order;
 
 /**
  *
@@ -14,12 +15,14 @@ import models.Customer;
 public class Select_Payment_Method extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Select_Payment_Method.class.getName());
+    private Order currentOrder; 
     private Customer loggedInCustomer;
     /**
      * Creates new form Select_Payment_Method
      */
-    public Select_Payment_Method(Customer c) {
+    public Select_Payment_Method(Order o, Customer c) {
         loggedInCustomer = c;
+        currentOrder = o;
         initComponents();
         showAllCardNumbers();
     }
@@ -203,9 +206,9 @@ public class Select_Payment_Method extends javax.swing.JFrame {
 
     private void btn_SelectPaymentMethod_ConfirmPaymentMethodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SelectPaymentMethod_ConfirmPaymentMethodActionPerformed
         // TODO add your handling code here:
-//        CustomerConfirmation cConfirmation = new CustomerConfirmation(currentOrder, customer);
-//        cConfirmation.setVisible(true);
-//        this.setVisible(false);
+        CustomerConfirmation cConfirmation = new CustomerConfirmation(currentOrder, loggedInCustomer);
+        cConfirmation.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btn_SelectPaymentMethod_ConfirmPaymentMethodActionPerformed
 
     private void btnSelectPaymentMethod_AddNewCardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectPaymentMethod_AddNewCardActionPerformed
