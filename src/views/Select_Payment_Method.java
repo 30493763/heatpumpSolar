@@ -4,6 +4,7 @@
  */
 package views;
 
+import javax.swing.DefaultListModel;
 import models.Customer;
 
 /**
@@ -20,8 +21,21 @@ public class Select_Payment_Method extends javax.swing.JFrame {
     public Select_Payment_Method(Customer c) {
         loggedInCustomer = c;
         initComponents();
+        showAllCardNumbers();
     }
-
+    
+    //methods
+    public void showAllCardNumbers(){
+        DefaultListModel cardsModel = new DefaultListModel();
+        
+        for(Integer card : loggedInCustomer.getCardNumbers() )
+        {
+                cardsModel.addElement(card);
+        }
+        
+        lstSelectPaymentMethod_PaymentCards.setModel(cardsModel);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -35,7 +49,7 @@ public class Select_Payment_Method extends javax.swing.JFrame {
         btnSelectPaymentMethod_backToMain = new javax.swing.JButton();
         lbl_SelectPaymentMetho_SelectPaymentCard = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        lstSelectPaymentMethod_PaymentCards = new javax.swing.JList<>();
         btn_SelectPaymentMethod_ConfirmPaymentMethod = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         txtSelectPaymentMethod_NewCardNumber = new javax.swing.JTextField();
@@ -59,8 +73,8 @@ public class Select_Payment_Method extends javax.swing.JFrame {
         lbl_SelectPaymentMetho_SelectPaymentCard.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbl_SelectPaymentMetho_SelectPaymentCard.setText("Select Payment Card:");
 
-        jList1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jScrollPane1.setViewportView(jList1);
+        lstSelectPaymentMethod_PaymentCards.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jScrollPane1.setViewportView(lstSelectPaymentMethod_PaymentCards);
 
         btn_SelectPaymentMethod_ConfirmPaymentMethod.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btn_SelectPaymentMethod_ConfirmPaymentMethod.setText("Confirm Payment Method");
@@ -210,11 +224,11 @@ public class Select_Payment_Method extends javax.swing.JFrame {
     private javax.swing.JButton btn_SelectPaymentMethod_ConfirmPaymentMethod;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_SelectPaymentMetho_MessageBox;
     private javax.swing.JLabel lbl_SelectPaymentMetho_SelectPaymentCard;
     private javax.swing.JLabel lbl_SelectPaymentMetho_Shop_Title;
+    private javax.swing.JList<String> lstSelectPaymentMethod_PaymentCards;
     private javax.swing.JTextField txtSelectPaymentMethod_NewCardNumber;
     private javax.swing.JTextField txtSelectPaymentMethod_NewDefaultCard;
     // End of variables declaration//GEN-END:variables
