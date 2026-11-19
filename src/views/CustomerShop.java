@@ -147,6 +147,7 @@ public class CustomerShop extends javax.swing.JFrame {
         lblShop_Quantity.setText("Quantity:");
 
         txtShop_Quantity.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtShop_Quantity.setText("1");
 
         btnShop_CountOrderLine.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnShop_CountOrderLine.setText("countOrderLine");
