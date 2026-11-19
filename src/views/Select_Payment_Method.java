@@ -64,6 +64,7 @@ public class Select_Payment_Method extends javax.swing.JFrame {
 
         btn_SelectPaymentMethod_ConfirmPaymentMethod.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btn_SelectPaymentMethod_ConfirmPaymentMethod.setText("Confirm Payment Method");
+        btn_SelectPaymentMethod_ConfirmPaymentMethod.addActionListener(this::btn_SelectPaymentMethod_ConfirmPaymentMethodActionPerformed);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setText("Enter New Card Number:");
@@ -169,6 +170,13 @@ public class Select_Payment_Method extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnSelectPaymentMethod_backToMainActionPerformed
 
+    private void btn_SelectPaymentMethod_ConfirmPaymentMethodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SelectPaymentMethod_ConfirmPaymentMethodActionPerformed
+        // TODO add your handling code here:
+//        CustomerConfirmation cConfirmation = new CustomerConfirmation(currentOrder, customer);
+//        cConfirmation.setVisible(true);
+//        this.setVisible(false);
+    }//GEN-LAST:event_btn_SelectPaymentMethod_ConfirmPaymentMethodActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -191,7 +199,7 @@ public class Select_Payment_Method extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new Select_Payment_Method().setVisible(true));
+//        java.awt.EventQueue.invokeLater(() -> new Select_Payment_Method().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
